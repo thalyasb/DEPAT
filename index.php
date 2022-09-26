@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="shortcut icon" type="imagem/png" href="./public/img/brasao-do-acre.png"/>
   
   <style>
     html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
@@ -34,12 +35,12 @@
         <h5>Menu</h5>
       </div>
       <div class="w3-bar-block"> 
-          <a href="{{url('/estatistica')}}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home"></i>&nbsp; Página Inicial</a>
-          <a href="{{url('/listagem')}}" class="w3-bar-item w3-button w3-padding" ><i class="fa fa-search fa-fw"></i>&nbsp; Busca</a>
-          <a href="{{url('/conselheiro')}}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>&nbsp; Arquitetura</a>
-          <a href="{{url('/novos')}}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bars fa-fw"></i>&nbsp; Complementares</a>
-          <a href="{{url('/meusProcessos')}}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-book fa-fw"></i>&nbsp; Orçamento</a>
-          <a href="{{url('/gerarRelatorio')}}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-file fa-fw"></i>&nbsp; Relatórios</a>
+          <a href="" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home"></i>&nbsp; Página Inicial</a>
+          <a href="" class="w3-bar-item w3-button w3-padding" ><i class="fa fa-search fa-fw"></i>&nbsp; Visão Geral</a>
+          <a href="" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>&nbsp; Arquitetura</a>
+          <a href="" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bars fa-fw"></i>&nbsp; Complementares</a>
+          <a href="" class="w3-bar-item w3-button w3-padding"><i class="fa fa-book fa-fw"></i>&nbsp; Orçamento</a>
+          <a href="" class="w3-bar-item w3-button w3-padding"><i class="fa fa-file fa-fw"></i>&nbsp; Relatórios</a>
 
       </div>
     </nav>
