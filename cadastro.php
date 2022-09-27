@@ -66,7 +66,7 @@ h5 {
 
     <form class="w3-container w3-row-padding w3-white" style="margin-left:16%" id="form" method="POST">
         <header class="w3-container" style="padding-top:22px">
-            <h5><b><i class="w3-blue"></i> CADASTRO DE PROCESSOS</b></h5>
+            <h3><b><i class="w3-blue"></i> CADASTRO DE PROCESSOS</b></h3>
         </header>
         <div class="w3-col s12">
             <input class="w3-input" type="text" name="nome" id="nome" placeholder="Número do Processo" required>
@@ -80,9 +80,11 @@ h5 {
         </div>
 
         <div class="w3-col s4">
-            <input class="w3-input" maxlength="10" type="date" placeholder="Data do Documento" name="data_nascimento"
+            <input class="w3-input" maxlength="10" type="date" placeholder="Data do Documento" name="data_recebimento"
+                name="data_nascimento">Data de Recebimento: </p>
+            <input class="w3-input" maxlength="10" type="date" placeholder="Data do Documento" name="data_documento"
                 name="data_nascimento">Data de Inicio: </p>
-            <input class="w3-input" maxlength="10" type="date" placeholder="Data de Recebimento" name="data_nascimento"
+            <input class="w3-input" maxlength="10" type="date" placeholder="Data de Previsão" name="data_previsão"
                 name="data_nascimento">Previsão de Entrega: </p>
         </div>
         <div class="w3-col s4">
@@ -137,6 +139,11 @@ h5 {
                 <label>Combate Incêndio e Pânico</label>
                 <input class="w3-check" type="checkbox">
                 <label>Drenagem Pluvial</label>
+                <br>
+                <br>
+                <br>
+                <label>Detalhes da Disciplina:</label>
+                <input class="w3-input w3-border" type="text">
         </div>
     </form>
     <div class="w3-container w3-row-padding w3-white" style="margin-left:16%">
