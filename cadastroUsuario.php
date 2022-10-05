@@ -1,90 +1,67 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<!DOCTYPE html>
+<html>
+<title>DEPAT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<style>
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Raleway", sans-serif
+}
+</style>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+<!-- CABEÇALHO -->
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="perfil_id" class="col-md-4 col-form-label text-md-right">{{ __('Perfil') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="perfil_id" type="perfil_id" name="perfil_id" value="{{ old('perfil_id') }}" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group row">
-                            <label for="ativo" class="col-md-4 col-form-label text-md-right">{{ __('Ativo') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="ativo" type="ativo" name="ativo" value="{{ old('ativo') }}" required>
-                            </div>
-                        </div>
-                    
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+<body class="w3-light-grey">
+    <div class="w3-bar w3-top w3-blue w3-large" style="z-index:4">
+        <a class="w3-bar-item w3-button w3-right w3-hover-none w3-hover-text-light-grey" href="logout"><i
+                class="fa fa-times"></i>&nbsp; Sair</a>
+        <span class="w3-bar-item w3-left">DEPAT</span>
     </div>
-</div>
+    <br>
+    <br>
+
+     <!-- FORMULÁRIO -->
+
+     <form class="w3-container w3-row-padding w3-white" style="margin-left:15%;margin-right:15%" id="form" method="POST">
+        <header class="w3-container" style="padding-top:22px">
+            <h3><b><i class="w3-blue"></i> CADASTRO DE USUÁRIOS</b></h3>
+        </header>
+        <div class="w3-col s12">
+            <input class="w3-input" type="text" name="nome" id="nome" placeholder="Nome Completo" required>
+            <p>
+                <input class="w3-input" type="text" name="nome" id="nome" placeholder="CPF" required>
+        </div>
+
+        <div class="w3-col s12">
+            <input class="w3-input" name="endereco" type="text" placeholder="Usuário" required></p>
+            <input class="w3-input" name="endereco" type="text" placeholder="Senha" required></p>
+        </div>
+
+        <div class="w3-col s4">
+            <input class="w3-input" maxlength="10" type="date" placeholder="Data do Documento" name="data_recebimento"
+                name="data_nascimento">Data de Desativação: </p>
+        </div>
+    </form>
+    <div class="w3-container w3-row-padding w3-white" style="margin-left:15%;margin-right:15%">
+        <p>
+            <input class="w3-button w3-blue w3-start w3-round" type="submit"
+                onclick="document.getElementById('form').submit()" value="Salvar">
+            <input class="w3-button w3-red w3-start w3-round" type="submit"
+                onclick="document.getElementById('form').submit()" value="Cancelar">
+        </p>
+    </div>
+    <br>
+</body>
+</html>
