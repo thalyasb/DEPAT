@@ -1,6 +1,6 @@
 <?php 
 
-$hostname = "localhost";
+$hostname = "depat";
 $bancodedados = "depat";
 $usuario = "root";
 $senha = "$31nfr@ac.gov.br";

@@ -6,10 +6,9 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="shortcut icon" type="imagem/png" href="./public/img/DEPAT (3).png" />
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="shortcut icon" type="imagem/png" href="./public/img/depatlogo.png"/>
+  
 <style>
 html,
 body,
@@ -22,13 +21,16 @@ h5 {
 }
 </style>
 
+<!-- CABEÇALHO -->
+
 <body class="w3-light-grey">
     <div class="w3-bar w3-top w3-blue w3-large" style="z-index:4">
         <a class="w3-bar-item w3-button w3-right w3-hover-none w3-hover-text-light-grey" href="logout"><i
                 class="fa fa-times"></i>&nbsp; Sair</a>
         <span class="w3-bar-item w3-left">DEPAT</span>
     </div>
-
+    <br>
+    <br>
 
     <!-- MENU -->
     <nav class="w3-sidebar w3-collapse w3-white " style="z-index:3;width:300px;" id="mySidebar"><br>
@@ -45,7 +47,7 @@ h5 {
             <h5>Menu</h5>
         </div>
         <div class="w3-bar-block">
-            <a href="index.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home"></i>&nbsp; Página Inicial</a>
+            <a href="" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home"></i>&nbsp; Página Inicial</a>
             <a href="cadastro.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-address-card fa-fw"></i>&nbsp;
                 Cadastro</a>
             <a href="arquitetura.php" class="w3-bar-item w3-button w3-padding"><i
@@ -54,30 +56,29 @@ h5 {
                 Complementares</a>
             <a href="orçamento.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-book fa-fw"></i>&nbsp;
                 Orçamento</a>
-            <a href="relatorios.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-file fa-fw"></i>&nbsp; Relatórios</a>
+            <a href="" class="w3-bar-item w3-button w3-padding"><i class="fa fa-file fa-fw"></i>&nbsp; Relatórios</a>
         </div>
     </nav>
 
-    <!-- Overlay effect when opening sidebar on small screens -->
-    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close(mySidebar)" style="cursor:pointer"
+    
+
+    <!-- SOBREPOSIÇÃO AO ABRIR A BARRA LATERAL -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="close(mySidebar)" style="cursor:pointer"
         title="close side menu" id="myOverlay"></div>
 
-    <!-- !PAGE CONTENT! -->
-    <div class="w3-main w3-white" style="margin-left:300px;margin-top:43px;">
+    <!-- !CONTEÚDO DA PÁGINA! -->
+    <div class="w3-main w3-white" style="margin-left:300px;margin-top:43px;"></div>
 
-        <!-- @yield('content') -->
-
-    </div>
-
+    <!-- SCRIPT DE MANIPULAÇÃO DA PÁGINA -->
     <script>
-    // Get the Sidebar
+    // BAARRA LATERAL 
     var mySidebar = document.getElementById("mySidebar");
 
-    // Get the DIV with overlay effect
+    // EFEITO DE SOBREPOSIÇÃO
     var overlayBg = document.getElementById("myOverlay");
 
-    // Toggle between showing and hiding the sidebar, and add overlay effect
-    function w3_open() {
+    // MOSTRA E OCULTA A BARRA LATERAL
+    function open() {
         if (mySidebar.style.display === 'block') {
             mySidebar.style.display = 'none';
         } else {
@@ -86,8 +87,8 @@ h5 {
 
     }
 
-    // Close the sidebar with the close button
-    function w3_close() {
+    // FECHA O MENU COM O BOTÃO SAIR
+    function close() {
         mySidebar.style.display = "none";
         overlayBg.style.display = "none";
     }
@@ -119,7 +120,5 @@ h5 {
         }
     }
     </script>
-
 </body>
-
 </html>
