@@ -13,33 +13,32 @@ h4,
 h5 {
     font-family: "Raleway", sans-serif
 }
+
 footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 100px;    
+    height: 100px;
     text-align: center;
     line-height: 100px;
 }
 </style>
+
+
 <div class="container">
     <div class="w3-padding w3-display-topmiddle" style="width:50%;height:50%">
         <div class="w3-center"><br>
             <img src="public/img/DEPAT.png" alt="Avatar" style="width:25%" class="w3-circle w3-margin-top">
         </div>
 
-        <form class="w3-container" style="margin-left:32%" method="POST" action="{{ route('login') }}">
+        <form class="w3-container" style="margin-left:32%" method="POST" action="validaLogin.php">
 
             <div class="w3-section w3-half">
-                <label for="email"><b>Usuário:</b></label>
-                <input id="email" type="email" class="w3-input w3-border w3-margin-bottom " name="email" value=""
-                    required oninvalid="this.setCustomValidity('Insira o E-mail válido do Usuário')"
-                    oninput="this.setCustomValidity('')">
+                <label for="usuario"><b>Usuário:</b></label>
+                <input id="usuario" type="text" class="w3-input w3-border w3-margin-bottom " name="usuario" value="">
 
-
-
-                <label for="password"><b>Senha:</b></label>
-                <input id="password" type="password" class="w3-input w3-border" name="password" required
+                <label for="senha"><b>Senha:</b></label>
+                <input id="senha" type="password" class="w3-input w3-border" name="senha" required
                     oninvalid="this.setCustomValidity('Insira a senha')" oninput="this.setCustomValidity('')">
 
                 <span class="invalid-feedback">
@@ -54,9 +53,7 @@ footer {
                     Entrar
                 </button>
                 <label>
-                    <input class="w3-check w3-margin-top" type="checkbox" name="remember"
-                        {{ old('remember') ? 'checked' : '' }}> Me lembre
-                </label>
+
             </div>
     </div>
     </form>
@@ -66,5 +63,5 @@ footer {
 </div>
 </div>
 <footer>
-Todos os direitos reservados © 2022
+    Todos os direitos reservados © 2022
 </footer>
