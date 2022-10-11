@@ -24,7 +24,6 @@ footer {
 }
 </style>
 
-
 <div class="container">
     <div class="w3-padding w3-display-topmiddle" style="width:50%;height:50%">
         <div class="w3-center"><br>
@@ -34,11 +33,11 @@ footer {
         <form class="w3-container" style="margin-left:32%" method="POST" action="validaLogin.php">
 
             <div class="w3-section w3-half">
-                <label for="usuario"><b>Usuário:</b></label>
-                <input id="usuario" type="text" class="w3-input w3-border w3-margin-bottom " name="usuario" value="">
+                <label for="usuario"><b>Usuário: </b></label>
+                <input required id="usuario" type="text" class="w3-input w3-border w3-margin-bottom " name="usuario" value="">
 
-                <label for="senha"><b>Senha:</b></label>
-                <input id="senha" type="password" class="w3-input w3-border" name="senha" required
+                <label for="senha"><b>Senha: </b></label>
+                <input required id="senha" type="password" class="w3-input w3-border" name="senha" required
                     oninvalid="this.setCustomValidity('Insira a senha')" oninput="this.setCustomValidity('')">
 
                 <span class="invalid-feedback">
@@ -56,7 +55,7 @@ footer {
 
             </div>
     </div>
-        </form>
+    </form>
 </div>
 </div>
 </div>
