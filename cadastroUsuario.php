@@ -34,12 +34,12 @@ h5 {
 
      <!-- FORMULÁRIO -->
 
-     <form class="w3-container w3-row-padding w3-white" style="margin-left:15%;margin-right:15%" id="form" method="POST">
+     <form class="w3-container w3-row-padding w3-white" style="margin-left:15%;margin-right:15%" id="form" method="POST" action="./validaUsuario.php">
         <header class="w3-container" style="padding-top:22px">
             <h3><b><i class="w3-blue"></i> CADASTRO DE USUÁRIOS</b></h3>
         </header>
         <div class="w3-col s12">
-            <input class="w3-input" type="text" name="nomeCompleto" id="nomeCompleto" placeholder="Nome Completo" required>
+            <input class="w3-input" type="text" name="nome" id="nome" placeholder="Nome Completo" required>
             <p>
                 <input class="w3-input" type="text" name="cpf" id="cpf" placeholder="CPF" required>
         </div>
@@ -50,8 +50,8 @@ h5 {
         </div>
 
         <div class="w3-col s4">
-            <input class="w3-input" maxlength="10" type="date" placeholder="Data do Documento" name="data_desativacao"
-                name="data_desativacao >Data de Desativação: </p>
+            <input class="w3-input" maxlength="10" type="date" placeholder="Data do Documento" name="data_desativacao">
+                <p> Data de Desativação: </p>
         </div>
     </form>
     <div class="w3-container w3-row-padding w3-white" style="margin-left:15%;margin-right:15%">

@@ -24,13 +24,13 @@ h5 {
 
 <?php
 
-    include("conexaobd.php");
+    include("database/conexaobd.php");
 
 ?>
 
 <body class="w3-light-grey">
     <div class="w3-bar w3-top w3-blue w3-large" style="z-index:4">
-        <a class="w3-bar-item w3-button w3-right w3-hover-none w3-hover-text-light-grey" href="logout"><i
+        <a class="w3-bar-item w3-button w3-right w3-hover-none w3-hover-text-light-grey" href="login.php"><i
                 class="fa fa-times"></i>&nbsp; Sair</a>
         <span class="w3-bar-item w3-left">DEPAT</span>
     </div>
