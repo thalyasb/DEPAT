@@ -23,6 +23,10 @@ h5 {
 }
 </style>
 
+<?php 
+    session_start();
+?>
+
 <!-- CABEÇALHO -->
 
 <body class="w3-light-grey">
@@ -36,6 +40,8 @@ h5 {
 
     <!-- MENU -->
     <nav class="w3-sidebar w3-collapse w3-white " style="z-index:3;width:300px;" id="mySidebar"><br>
+
+      
         <div class="w3-container w3-row w3-cell">
             <div class="w3-col s4">
                 <img src="public/img/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
@@ -63,10 +69,11 @@ h5 {
     </nav>
 
     <!-- FORMULÁRIO -->
-
+    
     <form class="w3-container w3-row-padding w3-white" style="margin-left:16%" id="form" method="POST" action="./validaCadastroProcesso.php">
         <header class="w3-container" style="padding-top:22px">
             <h3><b><i class="w3-blue"></i> CADASTRO DE PROCESSOS</b></h3>
+            <p> <?= isset($_SESSION['message']) ? $_SESSION['message'] : "" ; ?> </p> <?php if(isset($_SESSION['message'])) unset($_SESSION['message']); ?>
         </header>
         <div class="w3-col s12">
             <input class="w3-input" type="text" name="nome" id="nome" placeholder="Número do Processo" required>
