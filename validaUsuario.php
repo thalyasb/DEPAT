@@ -11,6 +11,7 @@ $query = "insert into usuario (nome,cpf,usuario,senha) values ( '" . $nome . "',
 try {
 $result = mysqli_query($conexao, $query);
     header('Location: cadastroUsuario.php');
+    echo 'Dados Salvo com Sucesso!';
     exit();
 } catch (Exception) {
     header('Location: cadastroUsuario.php');

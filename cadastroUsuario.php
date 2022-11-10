@@ -49,10 +49,6 @@ h5 {
             <input class="w3-input" name="senha" type="text" placeholder="Senha" required></p>
         </div>
 
-        <div class="w3-col s4">
-            <input class="w3-input" maxlength="10" type="date" placeholder="Data do Documento" name="data_desativacao">
-                <p> Data de Desativação: </p>
-        </div>
     </form>
     <div class="w3-container w3-row-padding w3-white" style="margin-left:15%;margin-right:15%">
         <p>

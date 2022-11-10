@@ -38,7 +38,7 @@ footer {
 
             <div class="w3-section w3-half">
                 <label for="usuario"><b>Usuário: </b></label>
-                <input required id="usuario" type="text" class="w3-input w3-border w3-margin-bottom " name="usuario" value="">
+                <input required id="usuario" type="text" class="w3-input w3-border w3-margin-bottom " name="usuario" value="" required oninvalid="this.setCustomValidity('Insira o Usuário')" oninput="this.setCustomValidity('')">
 
                 <label for="senha"><b>Senha: </b></label>
                 <input required id="senha" type="password" class="w3-input w3-border" name="senha" required

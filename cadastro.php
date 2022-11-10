@@ -64,31 +64,31 @@ h5 {
 
     <!-- FORMULÁRIO -->
 
-    <form class="w3-container w3-row-padding w3-white" style="margin-left:16%" id="form" method="POST">
+    <form class="w3-container w3-row-padding w3-white" style="margin-left:16%" id="form" method="POST" action="./validaCadastroProcesso.php">
         <header class="w3-container" style="padding-top:22px">
             <h3><b><i class="w3-blue"></i> CADASTRO DE PROCESSOS</b></h3>
         </header>
         <div class="w3-col s12">
             <input class="w3-input" type="text" name="nome" id="nome" placeholder="Número do Processo" required>
             <p>
-                <input class="w3-input" type="text" name="nome" id="nome" placeholder="Documento" required>
+                <input class="w3-input" type="text" name="documento" id="documento" placeholder="Documento" required>
         </div>
 
         <div class="w3-col s12">
-            <input class="w3-input" name="endereco" type="text" placeholder="Objeto" required></p>
-            <input class="w3-input" name="endereco" type="text" placeholder="Projetista" required></p>
+            <input class="w3-input" name="objeto" type="text" placeholder="Objeto" required></p>
+            <input class="w3-input" name="projetista" type="text" placeholder="Projetista" required></p>
         </div>
 
         <div class="w3-col s4">
             <input class="w3-input" maxlength="10" type="date" placeholder="Data do Documento" name="data_recebimento"
-                name="data_nascimento">Data de Recebimento: </p>
-            <input class="w3-input" maxlength="10" type="date" placeholder="Data do Documento" name="data_documento"
-                name="data_nascimento">Data de Inicio: </p>
-            <input class="w3-input" maxlength="10" type="date" placeholder="Data de Previsão" name="data_previsão"
-                name="data_nascimento">Previsão de Entrega: </p>
+                name="data_recebimento">Data de Recebimento: </p>
+            <input class="w3-input" maxlength="10" type="date" placeholder="Data do Documento" name="data_inclusao"
+                name="data_inclusao">Data de Inicio: </p>
+            <input class="w3-input" maxlength="10" type="date" placeholder="Data de Previsão" name="data_conclusao"
+                name="data_conclusao">Previsão de Entrega: </p>
         </div>
         <div class="w3-col s4">
-            <select class="w3-select" name="oriTipo" required>
+            <select class="w3-select" name="status_processo" required>
                 <option value="" disabled selected> Status:</option>
                 <option value=""> Iniciado</option>
                 <option value=""> Em Execução</option>
@@ -96,9 +96,9 @@ h5 {
             </select></p></br>
         </div>
         <div class="w3-col s4">
-            <select class="w3-select" name="oriTipo" required>
+            <select class="w3-select" name="origem" required>
                 <option value="" disabled selected> Origem:</option>
-                <option value=""> DEPAD</option>
+                <option value=""> DEPAT</option>
                 <option value=""> DEPCO</option>
                 <option value=""> DITEC</option>
                 <option value=""> SEINFRA</option>
@@ -117,7 +117,7 @@ h5 {
         </div>
 
         <div class="w3-col s4">
-            <select class="w3-select" name="oriTipo" required>
+            <select class="w3-select" name="destino" required>
                 <option value="" disabled selected> Destino:</option>
                 <option value=""> Arquitetura</option>
                 <option value=""> Complementares</option>
@@ -143,11 +143,13 @@ h5 {
                 <br>
                 <br>
                 <label>Detalhes da Disciplina:</label>
-                <input class="w3-input w3-border" type="text">
+                <input class="w3-input w3-border" name="detalhes" type="text">
         </div>
     </form>
     <div class="w3-container w3-row-padding w3-white" style="margin-left:16%">
         <p>
+            <input class="w3-button w3-green w3-start w3-round" type="submit"
+                onclick="document.getElementById('form').submit()" value="Buscar" >
             <input class="w3-button w3-blue w3-start w3-round" type="submit"
                 onclick="document.getElementById('form').submit()" value="Salvar">
             <input class="w3-button w3-red w3-start w3-round" type="submit"

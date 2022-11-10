@@ -43,7 +43,7 @@ h5 {
                 <img src="public/img/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
             </div>
             <div class="w3-col s8 w3-bar w3-cell-middle">
-                <span>Bem Vindo, <strong>$Usuario</strong></span><br>
+                <span>Bem Vindo, <strong>('$Usuario')</strong></span><br>
             </div>
         </div>
         <hr>
@@ -61,6 +61,7 @@ h5 {
             <a href="orçamento.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-book fa-fw"></i>&nbsp;
                 Orçamento</a>
             <a href="relatorios.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-file fa-fw"></i>&nbsp; Relatórios</a>
+            <a href="cadastroUsuario.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp; Cadastro de Usuários</a>
         </div>
     </nav>
 
