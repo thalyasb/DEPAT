@@ -1,3 +1,6 @@
+<?php
+include 'database/conexaobd.php';
+?>
 <!DOCTYPE html>
 <html>
 <title>DEPAT</title>
@@ -7,7 +10,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-
 
 <style>
 html,
@@ -43,11 +45,11 @@ h5 {
             </div>
         </div>
         <hr>
-        <div class="w3-container">
+                <div class="w3-container">
             <h5>Menu</h5>
         </div>
         <div class="w3-bar-block">
-            <a href="" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home"></i>&nbsp; Página Inicial</a>
+            <a href="index.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home"></i>&nbsp; Página Inicial</a>
             <a href="cadastro.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-address-card fa-fw"></i>&nbsp;
                 Cadastro</a>
             <a href="arquitetura.php" class="w3-bar-item w3-button w3-padding"><i
@@ -56,114 +58,64 @@ h5 {
                 Complementares</a>
             <a href="orçamento.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-book fa-fw"></i>&nbsp;
                 Orçamento</a>
-            <a href="" class="w3-bar-item w3-button w3-padding"><i class="fa fa-file fa-fw"></i>&nbsp; Relatórios</a>
+            <a href="relatorios.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-file fa-fw"></i>&nbsp; Relatórios</a>
+            <a href="cadastroUsuario.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp; Cadastro de Usuários</a>
         </div>
     </nav>
 
     <!-- FORMULÁRIO -->
 
-    <form class="w3-container w3-row-padding w3-white" style="margin-left:16%" id="form" method="POST">
+    <form class="w3-container w3-row-padding w3-white" style="margin-left:16%" id="form" method="POST"  action="./processoEditDelete.php">
         <header class="w3-container" style="padding-top:22px">
             <h3><b><i class="w3-blue"></i> PROCESSOS DE ARQUITETURA</b></h3>
         </header>
-        <div class="w3-col s12">
-            <input class="w3-input" type="text" name="nome" id="nome" placeholder="Número do Processo" required>
-            <p>
-                <input class="w3-input" type="text" name="nome" id="nome" placeholder="Documento" required>
-        </div>
+        
+        <div class="w3-responsive">
+            <table class="w3-table w3-bordered w3-card-4">
+                <tr class="w3-light-grey"> 
+                    <td>N° Processo</td> 
+                    <td>Recebimento</td> 
+                    <td>Inclusão</td> 
+                    <td>Conclusão</td> 
+                    <td>Status</td> 
+                    <td>Origem</td> 
+                    <td>Documento</td> 
+                    <td>Objeto</td> 
+                    <td>Projetista</td>
+                    <td>Destino</td>
+                    <td>Detalhes</td>
+                    <td>Ação</td>
+                </tr>
+                <?php $query = "select * from processo where destino = 'arquitetura'";
 
-        <div class="w3-col s12">
-            <input class="w3-input" name="endereco" type="text" placeholder="Objeto" required></p>
-            <input class="w3-input" name="endereco" type="text" placeholder="Projetista" required></p>
-        </div>
+                        $result = mysqli_query($conexao, $query); 
+                        
+                ?> 
 
-        <div class="w3-col s4">
-            <input class="w3-input" maxlength="10" type="date" placeholder="Data do Documento" name="data_recebimento"
-                name="data_nascimento">Data de Recebimento: </p>
-            <input class="w3-input" maxlength="10" type="date" placeholder="Data do Documento" name="data_documento"
-                name="data_nascimento">Data de Inicio: </p>
-            <input class="w3-input" maxlength="10" type="date" placeholder="Data de Previsão" name="data_previsão"
-                name="data_nascimento">Previsão de Entrega: </p>
-        </div>
-        <div class="w3-col s4">
-            <select class="w3-select" name="oriTipo" required>
-                <option value="" disabled selected> Status:</option>
-                <option value=""> Iniciado</option>
-                <option value=""> Em Execução</option>
-                <option value=""> Finalizado </option>
-            </select></p></br>
-        </div>
-        <div class="w3-col s4">
-            <select class="w3-select" name="oriTipo" required>
-                <option value="" disabled selected> Origem:</option>
-                <option value=""> DEPAD</option>
-                <option value=""> DEPCO</option>
-                <option value=""> DITEC</option>
-                <option value=""> SEINFRA</option>
-                <option value=""> AGRONEGÓCIOS</option>
-                <option value=""> CAGEACRE</option>
-                <option value=""> SEPA</option>
-                <option value=""> AMBNE</option>
-                <option value=""> PCAC</option>
-                <option value=""> DEPOB</option>
-                <option value=""> ISE</option>
-                <option value=""> SEPLAG</option>
-                <option value=""> SECRETÁRIO/SEINFRA</option>
-                <option value=""> PGE</option>
-                <option value=""> CASA CIVIL</option>
-            </select></p></br>
-        </div>
+                <?php while($row_usuario = mysqli_fetch_assoc($result)){ ?> 
+                <tr> 
+                    <td><?php echo $row_usuario['num'] ?></td> 
+                    <td><?php echo $row_usuario['data_recebimento'] ?></td> 
+                    <td><?php echo $row_usuario['data_inclusao'] ?></td> 
+                    <td><?php echo $row_usuario['data_conclusao'] ?></td> 
+                    <td><?php echo $row_usuario['status_processo'] ?></td> 
+                    <td><?php echo $row_usuario['origem'] ?></td> 
+                    <td><?php echo $row_usuario['documento'] ?></td> 
+                    <td><?php echo $row_usuario['objeto'] ?></td> 
+                    <td><?php echo $row_usuario['projetista'] ?></td>
+                    <td><?php echo $row_usuario['destino'] ?></td>
+                    <td><?php echo $row_usuario['detalhes'] ?></td>
+                    <td>
+                        <a class="w3-button w3-circle w3-blue" type="submit" href="editaProcesso.php"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;</a>
+                        <a class="w3-button w3-circle w3-red" type="submit" href="editaProcesso.php"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;</a>
+                    </td>
+                </tr>
+                <?php } ?> 
 
-        <div class="w3-col s4">
-            <select class="w3-select" name="oriTipo" required>
-                <option value="" disabled selected> Destino:</option>
-                <option value=""> Arquitetura</option>
-                <option value=""> Complementares</option>
-                <option value=""> Orçamento</option>
-            </select></p></br>
+
+            </table>
         </div>
-
-        <div class="w3-col s4">
-                <p>Disciplinas:</p>
-                <input class="w3-check" type="checkbox" checked="checked" >
-                <label>Estrutural</label>
-                <input class="w3-check" type="checkbox">
-                <label>Instalações Hidrossanitárias</label>
-                <input class="w3-check" type="checkbox" checked="checked" >
-                <label>Intalações Elétricas</label>
-                <input class="w3-check" type="checkbox">
-                <label>Climatização</label>
-                <input class="w3-check" type="checkbox" checked="checked" >
-                <label>Combate Incêndio e Pânico</label>
-                <input class="w3-check" type="checkbox">
-                <label>Drenagem Pluvial</label>
-                <br>
-                <br>
-                <br>
-                <label>Detalhes da Disciplina:</label>
-                <input class="w3-input w3-border" type="text">
-        </div>
-    </form>
-    <div class="w3-container w3-row-padding w3-white" style="margin-left:16%">
-        <p>
-            <input class="w3-button w3-green w3-start w3-round" type="submit"
-                onclick="document.getElementById('form').submit()" value="Buscar">
-            <input class="w3-button w3-blue w3-start w3-round" type="submit"
-                onclick="document.getElementById('form').submit()" value="Salvar">
-            <input class="w3-button w3-red w3-start w3-round" type="submit"
-                onclick="document.getElementById('form').submit()" value="Cancelar">
-        </p>
-    </div>
-    <br>
-
-    <!-- SOBREPOSIÇÃO AO ABRIR A BARRA LATERAL -->
-    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="close(mySidebar)" style="cursor:pointer"
-        title="close side menu" id="myOverlay"></div>
-
-    <!-- !CONTEÚDO DA PÁGINA! -->
-    <div class="w3-main w3-white" style="margin-left:300px;margin-top:43px;"></div>
-
-    <!-- SCRIPT DE MANIPULAÇÃO DA PÁGINA -->
+     <!-- SCRIPT DE MANIPULAÇÃO DA PÁGINA -->
     <script>
     // BAARRA LATERAL 
     var mySidebar = document.getElementById("mySidebar");
@@ -216,3 +168,4 @@ h5 {
     </script>
 </body>
 </html>
+?>
