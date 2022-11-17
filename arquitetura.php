@@ -7,9 +7,12 @@ include 'database/conexaobd.php';
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="shortcut icon" type="imagem/png" href="./public/img/DEPAT (3).png" />
 
 <style>
 html,
@@ -73,18 +76,18 @@ h5 {
         <div class="w3-responsive">
             <table class="w3-table w3-bordered w3-card-4">
                 <tr class="w3-light-grey"> 
-                    <td>N° Processo</td> 
-                    <td>Recebimento</td> 
-                    <td>Inclusão</td> 
-                    <td>Conclusão</td> 
-                    <td>Status</td> 
-                    <td>Origem</td> 
-                    <td>Documento</td> 
-                    <td>Objeto</td> 
-                    <td>Projetista</td>
-                    <td>Destino</td>
-                    <td>Detalhes</td>
-                    <td>Ação</td>
+                    <td><b>N° Processo</b></td> 
+                    <td><b>Inclusão</b></td> 
+                    <td><b>Recebimento</b></td> 
+                    <td><b>Conclusão</b></td> 
+                    <td><b>Status</b></td> 
+                    <td><b>Origem</b></td> 
+                    <td><b>Documento</b></td> 
+                    <td><b>Objeto</b></td> 
+                    <td><b>Projetista</b></td>
+                    <td><b>Destino</b></td>
+                    <td><b>Detalhes</b></td>
+                    <td><b>Ação</b></td>
                 </tr>
                 <?php $query = "select * from processo where destino = 'arquitetura'";
 
@@ -106,8 +109,8 @@ h5 {
                     <td><?php echo $row_usuario['destino'] ?></td>
                     <td><?php echo $row_usuario['detalhes'] ?></td>
                     <td>
-                        <a class="w3-button w3-circle w3-blue" type="submit" href="editaProcesso.php"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;</a>
-                        <a class="w3-button w3-circle w3-red" type="submit" href="editaProcesso.php"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;</a>
+                        <a type="submit" href="editaProcesso.php"><i class="tiny material-icons">edit</i></a>
+                        <a type="submit" href="editaProcesso.php"><i class="tiny material-icons">delete</i></a>
                     </td>
                 </tr>
                 <?php } ?> 
@@ -168,4 +171,4 @@ h5 {
     </script>
 </body>
 </html>
-?>
+
