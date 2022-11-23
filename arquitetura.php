@@ -110,7 +110,7 @@ h5 {
                     <td><?php echo $row_usuario['detalhes'] ?></td>
                     <td>
                         <a type="submit" href="editaProcesso.php"><i class="tiny material-icons">edit</i></a>
-                        <a type="submit" href="editaProcesso.php"><i class="tiny material-icons">delete</i></a>
+                        <a type="submit" href="excluir.php"><i class="tiny material-icons">delete</i></a>
                     </td>
                 </tr>
                 <?php } ?> 

@@ -98,38 +98,38 @@ h5 {
         <div class="w3-col s4">
             <select class="w3-select" name="status_processo" required>
                 <option value="" disabled selected> Status:</option>
-                <option value=""> Iniciado</option>
-                <option value=""> Em Execução</option>
-                <option value=""> Finalizado </option>
+                <option value="Iniciado"> Iniciado</option>
+                <option value="Em Execução"> Em Execução</option>
+                <option value="Finalizado"> Finalizado </option>
             </select></p></br>
         </div>
         <div class="w3-col s4">
             <select class="w3-select" name="origem" required>
                 <option value="" disabled selected> Origem:</option>
-                <option value=""> DEPAT</option>
-                <option value=""> DEPCO</option>
-                <option value=""> DITEC</option>
-                <option value=""> SEINFRA</option>
-                <option value=""> AGRONEGÓCIOS</option>
-                <option value=""> CAGEACRE</option>
-                <option value=""> SEPA</option>
-                <option value=""> AMBNE</option>
-                <option value=""> PCAC</option>
-                <option value=""> DEPOB</option>
-                <option value=""> ISE</option>
-                <option value=""> SEPLAG</option>
-                <option value=""> SECRETÁRIO/SEINFRA</option>
-                <option value=""> PGE</option>
-                <option value=""> CASA CIVIL</option>
+                <option value="DEPAT"> DEPAT</option>
+                <option value="DEPCO"> DEPCO</option>
+                <option value="DITEC"> DITEC</option>
+                <option value="SEINFRA"> SEINFRA</option>
+                <option value="AGRONEGÓCIOS"> AGRONEGÓCIOS</option>
+                <option value="CAGEACRE"> CAGEACRE</option>
+                <option value="SEPA"> SEPA</option>
+                <option value="AMBNE"> AMBNE</option>
+                <option value="PCAC"> PCAC</option>
+                <option value="DEPOB"> DEPOB</option>
+                <option value="ISE"> ISE</option>
+                <option value="SEPLAG"> SEPLAG</option>
+                <option value="SECRETÁRIO/SEINFRA"> SECRETÁRIO/SEINFRA</option>
+                <option value="PGE"> PGE</option>
+                <option value="CASA CIVIL"> CASA CIVIL</option>
             </select></p></br>
         </div>
 
         <div class="w3-col s4">
             <select class="w3-select" name="destino" required>
                 <option value="" disabled selected> Destino:</option>
-                <option value=""> Arquitetura</option>
-                <option value=""> Complementares</option>
-                <option value=""> Orçamento</option>
+                <option value="Arquitetura"> Arquitetura</option>
+                <option value="Complementares"> Complementares</option>
+                <option value="Orçamento"> Orçamento</option>
             </select></p></br>
         </div>
 

@@ -77,7 +77,7 @@ h5 {
             <p> <?= isset($_SESSION['message']) ? $_SESSION['message'] : "" ; ?> </p> <?php if(isset($_SESSION['message'])) unset($_SESSION['message']); ?>
         </header>
         <div class="w3-col s12">
-            <input class="w3-input" type="text" name="nome" id="nome" value="<?=$num?>" placeholder="Número do Processo" required>
+            <input class="w3-input" type="text" name="nome" id="nome" value="<?php echo $num['num'] ?>" placeholder="Número do Processo" required>
             <p>
                 <input class="w3-input" type="text" name="documento" id="documento" value="$documento" placeholder="Documento" required>
         </div>

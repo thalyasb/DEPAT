@@ -92,7 +92,7 @@ textarea {
                     <td>Destino</td>
                     <td>Detalhes</td>
                 </tr>
-                <?php $query = "select * from processo";
+                <?php $query = "select * from processo where destino = 'orcamento'";
 
                         $result = mysqli_query($conexao, $query); 
                         
