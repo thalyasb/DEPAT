@@ -68,7 +68,7 @@ h5 {
 
     <!-- FORMULÁRIO -->
 
-    <form class="w3-container w3-row-padding w3-white" style="margin-left:16%" id="form" method="POST"  action="./processoEditDelete.php">
+    <form class="w3-container w3-row-padding w3-white" style="margin-left:16%" id="form" method="POST"  action="./validaEditar.php">
         <header class="w3-container" style="padding-top:22px">
             <h3><b><i class="w3-blue"></i> PROCESSOS DE ARQUITETURA</b></h3>
         </header>
@@ -109,8 +109,15 @@ h5 {
                     <td><?php echo $row_usuario['destino'] ?></td>
                     <td><?php echo $row_usuario['detalhes'] ?></td>
                     <td>
-                        <a type="submit" href="editaProcesso.php"><i class="tiny material-icons">edit</i></a>
-                        <a type="submit" href="excluir.php"><i class="tiny material-icons">delete</i></a>
+                        <form action="validaEditar.php" method="POST">
+                            <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
+                            <button type="submit"><i class="tiny material-icons">edit</i></button>
+                        </form>
+
+                        <form action="excluir.php" method="POST">
+                            <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
+                            <button type="submit"><i class="tiny material-icons">delete</i></button>
+                        </form>
                     </td>
                 </tr>
                 <?php } ?> 

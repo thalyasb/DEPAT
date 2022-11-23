@@ -10,6 +10,9 @@ include 'database/conexaobd.php';
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="shortcut icon" type="imagem/png" href="./public/img/depatlogo.png"/>
   
 <style type="text/css">
@@ -72,7 +75,7 @@ textarea {
 
     <!-- FORMULÁRIO -->
 
-    <form class="w3-container w3-row-padding w3-white" style="margin-left:16%" id="form" method="POST"  action="./processoEditDelete.php">
+    <form class="w3-container w3-row-padding w3-white" style="margin-left:16%" id="form" method="POST"  action="./validaEditar.php">
         <header class="w3-container" style="padding-top:22px">
             <h3><b><i class="w3-blue"></i> PROCESSOS DE ORÇAMENTO</b></h3>
         </header>
@@ -112,8 +115,15 @@ textarea {
                     <td><?php echo $row_usuario['destino'] ?></td>
                     <td><?php echo $row_usuario['detalhes'] ?></td>
                     <td>
-                        <a class="w3-button w3-circle w3-blue" type="submit" href="editaProcesso.php">+</a>
-                        <a class="w3-button w3-circle w3-red" type="submit" href="editaProcesso.php">+</a>
+                    <form action="validaEditar.php" method="POST">
+                            <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
+                            <button type="submit"><i class="tiny material-icons">edit</i></button>
+                        </form>
+
+                        <form action="excluir.php" method="POST">
+                            <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
+                            <button type="submit"><i class="tiny material-icons">delete</i></button>
+                        </form>
                     </td>
                 </tr>
                 <?php } ?> 
