@@ -1,3 +1,5 @@
+<?php
+include 'database/conexaobd.php'; ?>
 <!DOCTYPE html>
 <html>
 <title>DEPAT</title>
@@ -8,7 +10,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
     integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="shortcut icon" type="imagem/png" href="./public/img/depat-sem-fundo.png"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="shortcut icon" type="imagem/png" href="./public/img/DEPAT (3).png" />
 
 <style>
 html,
@@ -22,19 +25,16 @@ h5 {
 }
 </style>
 
-<?php
-
-    include("database/conexaobd.php");
-
-?>
+<!-- CABEÇALHO -->
 
 <body class="w3-light-grey">
     <div class="w3-bar w3-top w3-blue w3-large" style="z-index:4">
-        <a class="w3-bar-item w3-button w3-right w3-hover-none w3-hover-text-light-grey" href="login.php"><i
+        <a class="w3-bar-item w3-button w3-right w3-hover-none w3-hover-text-light-grey" href="logout"><i
                 class="fa fa-times"></i>&nbsp; Sair</a>
         <span class="w3-bar-item w3-left">DEPAT</span>
     </div>
-
+    <br>
+    <br>
 
     <!-- MENU -->
     <nav class="w3-sidebar w3-collapse w3-white " style="z-index:3;width:250px;" id="mySidebar"><br>
@@ -47,7 +47,7 @@ h5 {
             </div>
         </div>
         <hr>
-        <div class="w3-container">
+                <div class="w3-container">
             <h5>Menu</h5>
         </div>
         <div class="w3-bar-block">
@@ -65,68 +65,50 @@ h5 {
         </div>
     </nav>
 
-    <!-- Overlay effect when opening sidebar on small screens -->
-    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close(mySidebar)" style="cursor:pointer"
-        title="close side menu" id="myOverlay"></div>
+<div class="w3-container w3-row-padding w3-white w3-center" style="margin-left:14%">
+  <h1>Informações Gerais do Processo</h1>
 
-    <!-- !PAGE CONTENT! -->
-    <div class="w3-main w3-white" style="margin-left:300px;margin-top:43px;">
+  <form>
+  <div class="w3-responsive w3-center">
 
-        <!-- @yield('content') -->
+                <?php $query = "select * from processo where destino = 'arquitetura'";
 
-    </div>
+                        $result = mysqli_query($conexao, $query); 
+                        
+                ?> 
+            <div  class="w3-container w3-row-padding w3-white" style="margin-left:14%">
+                <?php while($row_usuario = mysqli_fetch_assoc($result)){ ?> 
+                    <ul class="w3-ul w3-large" style="margin-left:14%">
+                    
+                    <li><b>Número do processo:</b> <?php echo $row_usuario['num'] ?></li>
+                    
+                    <li><b>Número do Documento:</b><?php echo $row_usuario['documento'] ?></li>
+                    
+                    <li><b>Objeto:</b> <?php echo $row_usuario['objeto'] ?></li>
+                    
+                    <li><b>Projetista:</b> <?php echo $row_usuario['projetista'] ?></li>
+                    
+                    <li><b>Data de Recebimento:</b> <?php echo $row_usuario['data_recebimento'] ?></li>
+                    
+                    <li><b>Data de Inclusão:</b> <?php echo $row_usuario['data_inclusao'] ?></li>
+                   
+                    <li><b>Data de Conclusão:</b> <?php echo $row_usuario['data_conclusao'] ?></li>
+                    
+                    <li><b>Status do Processo:</b> <?php echo $row_usuario['status_processo'] ?></li>
+                    
+                    <li><b>Origem:</b> <?php echo $row_usuario['origem'] ?></li>
+                    
+                    <li><b>Destino:</b> <?php echo $row_usuario['destino'] ?></li>
+                    
+                    <li><b>Detalhes:</b> <?php echo $row_usuario['detalhes'] ?></li>
+                    <li></li>
+                    </ul>
+            </div>
+                <?php } ?> 
+  </form>
+</div>
 
-    <script>
-    // Get the Sidebar
-    var mySidebar = document.getElementById("mySidebar");
-
-    // Get the DIV with overlay effect
-    var overlayBg = document.getElementById("myOverlay");
-
-    // Toggle between showing and hiding the sidebar, and add overlay effect
-    function w3_open() {
-        if (mySidebar.style.display === 'block') {
-            mySidebar.style.display = 'none';
-        } else {
-            mySidebar.style.display = 'block';
-        }
-
-    }
-
-    // Close the sidebar with the close button
-    function w3_close() {
-        mySidebar.style.display = "none";
-        overlayBg.style.display = "none";
-    }
-
-    function myFunction(id) {
-        var x = document.getElementById(id);
-        if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show w3-animation-left";
-        } else {
-            x.className = x.className.replace(" w3-show", "");
-        }
-    }
-
-    function myFunction() {
-        var input, filter, table, tr, td, i;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-    </script>
 
 </body>
-
 </html>
+

@@ -34,13 +34,13 @@ h5 {
     <br>
 
     <!-- MENU -->
-    <nav class="w3-sidebar w3-collapse w3-white " style="z-index:3;width:300px;" id="mySidebar"><br>
+    <nav class="w3-sidebar w3-collapse w3-white " style="z-index:3;width:250px;" id="mySidebar"><br>
         <div class="w3-container w3-row w3-cell">
             <div class="w3-col s4">
-                <img src="public/img/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+                <img src="public/img/depat (6).png" class="w3-circle" style="width:230px">
             </div>
             <div class="w3-col s8 w3-bar w3-cell-middle">
-                <span>Bem Vindo, <strong>$Usuario</strong></span><br>
+                <span> <strong></strong></span><br>
             </div>
         </div>
         <hr>
@@ -73,9 +73,9 @@ $res = mysqli_query($conexao, $select);
 $_SESSION['processo'] = $res;
 
 while($row_usuario = mysqli_fetch_assoc($res)){ ?>
-<form class="w3-container w3-row-padding w3-white" style="margin-left:16%" id="form" method="POST" action="./validaCadastroProcesso.php">
+<form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST" action="./validaCadastroProcesso.php">
 <header class="w3-container" style="padding-top:22px">
-    <h3><b><i class="w3-blue"></i> CADASTRO DE PROCESSOS</b></h3>
+    <h3><b><i class="w3-blue"></i> EDIÇÃO DE PROCESSOS </b></h3>
     <p> <?= isset($_SESSION['message']) ? $_SESSION['message'] : "" ; ?> </p> <?php if(isset($_SESSION['message'])) unset($_SESSION['message']); ?>
 </header>
 <div class="w3-col s12">

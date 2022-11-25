@@ -33,13 +33,13 @@ h5 {
     <br>
 
     <!-- MENU -->
-    <nav class="w3-sidebar w3-collapse w3-white " style="z-index:3;width:300px;" id="mySidebar"><br>
+    <nav class="w3-sidebar w3-collapse w3-white " style="z-index:3;width:250px;" id="mySidebar"><br>
         <div class="w3-container w3-row w3-cell">
             <div class="w3-col s4">
-                <img src="public/img/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+                <img src="public/img/depat (6).png" class="w3-circle" style="width:230px">
             </div>
             <div class="w3-col s8 w3-bar w3-cell-middle">
-                <span>Bem Vindo, <strong>$Usuario</strong></span><br>
+                <span> <strong></strong></span><br>
             </div>
         </div>
         <hr>

@@ -16,6 +16,8 @@ session_start();
                     detalhes = '$detalhes'
         where num = '$num';";
         $updade = $mysqli->query($query);
+        header('Location: arquitetura.php');
+        exit();
 
 $_SESSION['message'] = "Cadastro Alterado com Sucesso!";
 if(isset($_SESSION['message'])){
