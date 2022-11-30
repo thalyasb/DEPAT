@@ -13,6 +13,9 @@ include 'database/conexaobd.php';
     integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="shortcut icon" type="imagem/png" href="./public/img/DEPAT (3).png" />
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
+
+
 
 <style>
 html,
@@ -29,7 +32,7 @@ h5 {
 <!-- CABEÇALHO -->
 
 <body class="w3-light-grey">
-    <div class="w3-bar w3-top w3-blue w3-large" style="z-index:4">
+    <div class="w3-bar w3-top w3-highway-blue w3-large" style="z-index:4">
         <a class="w3-bar-item w3-button w3-right w3-hover-none w3-hover-text-light-grey" href="logout"><i
                 class="fa fa-times"></i>&nbsp; Sair</a>
         <span class="w3-bar-item w3-left">DEPAT</span>
@@ -68,26 +71,26 @@ h5 {
 
     <!-- FORMULÁRIO -->
 
-    <form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST"  action="./validaEditar.php">
+    <form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST"  action="./editaProcesso.php">
         <header class="w3-container" style="padding-top:22px">
-            <h3><b><i class="w3-blue"></i> PROCESSOS DE ARQUITETURA</b></h3>
+            <h3><b><i class="w3-blue"></i> PROCESSOS DE ORÇAMENTO</b></h3>
         </header>
         
-        <div class="w3-responsive">
-            <table class="w3-table w3-bordered w3-card-4">
-                <tr class="w3-light-grey"> 
-                    <td><b>N° Processo</b></td> 
-                    <td><b>Inclusão</b></td> 
-                    <td><b>Recebimento</b></td> 
-                    <td><b>Conclusão</b></td> 
-                    <td><b>Status</b></td> 
-                    <td><b>Origem</b></td> 
-                    <td><b>Documento</b></td> 
-                    <td><b>Objeto</b></td> 
-                    <td><b>Projetista</b></td>
-                    <td><b>Destino</b></td>
-                    <td><b>Detalhes</b></td>
-                    <td><b>Ação</b></td>
+        <div class="w3-responsive w3-col s12">
+            <table class="w3-card-4 w3-table-all w3-margin-top" id="myTable">
+                <tr class="w3-black"> 
+                    <td>N° Processo</td> 
+                    <td>Recebimento</td>  
+                    <td>Inclusão</td> 
+                    <td>Conclusão</td> 
+                    <td>Status</td> 
+                    <td>Origem</td> 
+                    <td>Documento</td> 
+                    <td>Objeto</td> 
+                    <td>Projetista</td>
+                    <td>Destino</td>
+                    <td>Detalhes</td>
+                    <td>Ação</td>
                 </tr>
                 <?php $query = "select * from processo where destino = 'arquitetura'";
 
@@ -109,7 +112,7 @@ h5 {
                     <td><?php echo $row_usuario['destino'] ?></td>
                     <td><?php echo $row_usuario['detalhes'] ?></td>
                     <td>
-                        <form action="validaEditar.php" method="POST">
+                    <form action="editaProcesso.php" method="POST">
                             <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
                             <button type="submit"><i class="tiny material-icons">edit</i></button>
                         </form>
@@ -125,6 +128,14 @@ h5 {
 
             </table>
         </div>
+
+
+    <!-- SOBREPOSIÇÃO AO ABRIR A BARRA LATERAL -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="close(mySidebar)" style="cursor:pointer"
+        title="close side menu" id="myOverlay"></div>
+
+    <!-- !CONTEÚDO DA PÁGINA! -->
+    <div class="w3-main w3-white" style="margin-left:300px;margin-top:43px;"></div>
      <!-- SCRIPT DE MANIPULAÇÃO DA PÁGINA -->
     <script>
     // BAARRA LATERAL 

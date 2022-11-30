@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <link rel="shortcut icon" type="imagem/png" href="./public/img/depatlogo.png"/>
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
   
 <style>
 html,
@@ -24,7 +25,7 @@ h5 {
 <!-- CABEÇALHO -->
 
 <body class="w3-light-grey">
-    <div class="w3-bar w3-top w3-blue w3-large" style="z-index:4">
+    <div class="w3-bar w3-top w3-highway-blue w3-large" style="z-index:4">
         <a class="w3-bar-item w3-button w3-right w3-hover-none w3-hover-text-light-grey" href="logout"><i
                 class="fa fa-times"></i>&nbsp; Sair</a>
         <span class="w3-bar-item w3-left">DEPAT</span>

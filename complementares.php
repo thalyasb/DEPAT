@@ -10,7 +10,13 @@ include 'database/conexaobd.php';
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-  
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="shortcut icon" type="imagem/png" href="./public/img/DEPAT (3).png" />
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
+
+
 <style type="text/css">
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif};
 .tabela {
@@ -32,7 +38,7 @@ textarea {
 </style>
 
 <body class="w3-light-grey">
-    <div class="w3-bar w3-top w3-blue w3-large" style="z-index:4">
+    <div class="w3-bar w3-top w3-highway-blue w3-large" style="z-index:4">
         <a class="w3-bar-item w3-button w3-right w3-hover-none w3-hover-text-light-grey" href="logout"><i
                 class="fa fa-times"></i>&nbsp; Sair</a>
         <span class="w3-bar-item w3-left">DEPAT</span>
@@ -71,7 +77,7 @@ textarea {
 
     <!-- FORMULÁRIO -->
 
-    <form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST"  action="./processoEditDelete.php">
+    <form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST"  action="./editaProcesso.php">
         <header class="w3-container" style="padding-top:22px">
             <h3><b><i class="w3-blue"></i> PROCESSOS COMPLEMENTARES</b></h3>
         </header>
@@ -90,6 +96,7 @@ textarea {
                     <td>Projetista</td>
                     <td>Destino</td>
                     <td>Detalhes</td>
+                    <td>Ação</td>
                 </tr>
                 <?php $query = "select * from processo where destino = 'complementares'";
 
@@ -111,8 +118,15 @@ textarea {
                     <td><?php echo $row_usuario['destino'] ?></td>
                     <td><?php echo $row_usuario['detalhes'] ?></td>
                     <td>
-                        <a class="w3-button w3-circle w3-blue" type="submit" href="editaProcesso.php">+</a>
-                        <a class="w3-button w3-circle w3-red" type="submit" href="editaProcesso.php">+</a>
+                    <form action="editaProcesso.php" method="POST">
+                            <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
+                            <button type="submit"><i class="tiny material-icons">edit</i></button>
+                        </form>
+
+                        <form action="excluir.php" method="POST">
+                            <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
+                            <button type="submit"><i class="tiny material-icons">delete</i></button>
+                        </form>
                     </td>
                 </tr>
                 <?php } ?> 

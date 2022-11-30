@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
     integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <link rel="shortcut icon" type="imagem/png" href="./public/img/depatlogo.png" />
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
 
 
 <style>
@@ -30,7 +31,7 @@ h5 {
 <!-- CABEÇALHO -->
 
 <body class="w3-light-grey">
-    <div class="w3-bar w3-top w3-blue w3-large" style="z-index:4">
+    <div class="w3-bar w3-top w3-highway-blue w3-large" style="z-index:4">
         <a class="w3-bar-item w3-button w3-right w3-hover-none w3-hover-text-light-grey" href="logout"><i
                 class="fa fa-times"></i>&nbsp; Sair</a>
         <span class="w3-bar-item w3-left">DEPAT</span>
@@ -39,19 +40,17 @@ h5 {
     <br>
 
     <!-- MENU -->
-    <nav class="w3-sidebar w3-collapse w3-white " style="z-index:3;width:300px;" id="mySidebar"><br>
-
-      
+    <nav class="w3-sidebar w3-collapse w3-white " style="z-index:3;width:250px;" id="mySidebar"><br>
         <div class="w3-container w3-row w3-cell">
             <div class="w3-col s4">
-                <img src="public/img/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+                <img src="public/img/depat (6).png" class="w3-circle" style="width:230px">
             </div>
             <div class="w3-col s8 w3-bar w3-cell-middle">
-                <span>Bem Vindo, <strong>$Usuario</strong></span><br>
+                <span> <strong></strong></span><br>
             </div>
         </div>
         <hr>
-        <div class="w3-container">
+                <div class="w3-container">
             <h5>Menu</h5>
         </div>
         <div class="w3-bar-block">
@@ -70,41 +69,50 @@ h5 {
     </nav>
 
     <!-- FORMULÁRIO -->
-    
-    <form class="w3-container w3-row-padding w3-white" style="margin-left:16%" id="form" method="POST" action="./editar.php">
-        <header class="w3-container" style="padding-top:22px">
-            <h3><b><i class="w3-blue"></i> ALTERAÇÃO DE PROCESSOS</b></h3>
-            <p> <?= isset($_SESSION['message']) ? $_SESSION['message'] : "" ; ?> </p> <?php if(isset($_SESSION['message'])) unset($_SESSION['message']); ?>
-        </header>
+<?php
+include 'database/conexaobd.php';
+ 
+$id = mysqli_real_escape_string($conexao, $_POST['id']);
+
+$select = "select * from processo p where p.id_processo = " . $id . " LIMIT 1;";
+$res = mysqli_query($conexao, $select);
+$obj = $res->fetch_object();
+
+?>
+<form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST" action="./editar.php">
+<header class="w3-container" style="padding-top:22px">
+    <h3><b><i class="w3-blue"></i> EDIÇÃO DE PROCESSOS </b></h3>
+    <p> <?= isset($_SESSION['message']) ? $_SESSION['message'] : "" ; ?> </p> <?php if(isset($_SESSION['message'])) unset($_SESSION['message']); ?> 
+</header>
         <div class="w3-col s12">
-            <input class="w3-input" type="text" name="nome" id="nome" value="<?php echo $num['num'] ?>" placeholder="Número do Processo" required>
+            <input class="w3-input" type="text" name="nome" id="nome" value="<?= $obj->num ?>" placeholder="Número do Processo" required>
             <p>
-                <input class="w3-input" type="text" name="documento" id="documento" value="$documento" placeholder="Documento" required>
+                <input class="w3-input" type="text" name="documento" id="documento" value="<?= $obj->documento ?>" placeholder="Documento" required>
         </div>
 
         <div class="w3-col s12">
-            <input class="w3-input" name="objeto" type="text" value="$objeto" placeholder="Objeto" required></p>
-            <input class="w3-input" name="projetista" type="text" value="$projetista" placeholder="Projetista" required></p>
+            <input class="w3-input" name="objeto" type="text" value="<?= $obj->objeto ?>" placeholder="Objeto" required></p>
+            <input class="w3-input" name="projetista" type="text" value="<?= $obj->projetista ?>" placeholder="Projetista" required></p>
         </div>
 
         <div class="w3-col s4">
-            <input class="w3-input" maxlength="10" type="date" value="$data_recebimento" placeholder="Data do Documento" name="data_recebimento"
+            <input class="w3-input" maxlength="10" type="date" value="<?= $obj->data_recebimento ?>" placeholder="Data do Documento" name="data_recebimento"
                 name="data_recebimento">Data de Recebimento: </p>
-            <input class="w3-input" maxlength="10" type="date" value="$data_inclusao" placeholder="Data do Documento" name="data_inclusao"
+            <input class="w3-input" maxlength="10" type="date" value="<?= $obj->data_inclusao ?>" placeholder="Data do Documento" name="data_inclusao"
                 name="data_inclusao">Data de Inicio: </p>
-            <input class="w3-input" maxlength="10" type="date" value="$data_conclusao" placeholder="Data de Previsão" name="data_conclusao"
+            <input class="w3-input" maxlength="10" type="date" value="<?= $obj->data_conclusao ?>" placeholder="Data de Previsão" name="data_conclusao"
                 name="data_conclusao">Previsão de Entrega: </p>
         </div>
         <div class="w3-col s4">
-            <select class="w3-select" name="status_processo" value="$status_processo" required>
-                <option value="" disabled selected> Status:</option>
+            <select class="w3-select" name="status_processo" value="<?= $obj->status_processo ?>" required>
+                <option value="<?= $obj->status_processo ?>" disabled selected> <?= $obj->status_processo ?> - Padrao</option>
                 <option value=""> Iniciado</option>
                 <option value=""> Em Execução</option>
                 <option value=""> Finalizado </option>
             </select></p></br>
         </div>
         <div class="w3-col s4">
-            <select class="w3-select" name="origem" value="origem" required>
+            <select class="w3-select" name="origem" value="<?= $obj->origem ?>" required>
                 <option value="" disabled selected> Origem:</option>
                 <option value=""> DEPAT</option>
                 <option value=""> DEPCO</option>
@@ -125,7 +133,7 @@ h5 {
         </div>
 
         <div class="w3-col s4">
-            <select class="w3-select" name="destino" value="$destino" required>
+            <select class="w3-select" name="destino" value="<?= $obj->destino ?>" required>
                 <option value="" disabled selected> Destino:</option>
                 <option value=""> Arquitetura</option>
                 <option value=""> Complementares</option>
@@ -153,8 +161,9 @@ h5 {
                 <label>Detalhes da Disciplina:</label>
                 <input class="w3-input w3-border" name="detalhes" type="text">
         </div>
-    </form>
-    <div class="w3-container w3-row-padding w3-white" style="margin-left:16%">
+
+    <div class="w3-container w3-row-padding w3-white" style="margin-left:14%">
+    <input hidden  name="id" value="<?= $obj->id ?>"/>
         <p>
             <input class="w3-button w3-green w3-start w3-round" type="submit"
                 onclick="document.getElementById('form').submit()" value="Buscar" >
@@ -165,7 +174,7 @@ h5 {
         </p>
     </div>
     <br>
-
+    </form>
     <!-- SOBREPOSIÇÃO AO ABRIR A BARRA LATERAL -->
     <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="close(mySidebar)" style="cursor:pointer"
         title="close side menu" id="myOverlay"></div>
