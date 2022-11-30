@@ -74,6 +74,8 @@ h5 {
     <form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST" action="./validaCadastroProcesso.php">
         <header class="w3-container" style="padding-top:22px">
             <h3><b><i class="w3-blue"></i> CADASTRO DE PROCESSOS</b></h3>
+            <p></p>
+            <hr>
             <p> <?= isset($_SESSION['message']) ? $_SESSION['message'] : "" ; ?> </p> <?php if(isset($_SESSION['message'])) unset($_SESSION['message']); ?>
         </header>
         <div class="w3-col s12">

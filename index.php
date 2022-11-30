@@ -95,7 +95,7 @@
             </div>
             <div class="w3-quarter">
                 <div class="w3-container w3-red w3-padding-16">
-                    <div class="w3-left"><i class="fa fa-book w3-xxxlarge"></i></div>
+                    <div class="w3-left"><i class="fa fa-bars w3-xxxlarge"></i></div>
                     <div class="w3-right">
                         <h3>0</h3>
                     </div>
@@ -105,7 +105,7 @@
             </div>
             <div class="w3-quarter">
                 <div class="w3-container w3-teal w3-padding-16">
-                    <div class="w3-left"><i class="fa fa-stethoscope w3-xxxlarge"></i></div>
+                    <div class="w3-left"><i class="fa fa-bars w3-xxxlarge"></i></div>
                     <div class="w3-right">
                         <h3>0</h3>
                     </div>
@@ -115,7 +115,7 @@
             </div>
             <div class="w3-quarter">
                 <div class="w3-container w3-blue w3-padding-16">
-                    <div class="w3-left"><i class="fa fa-bar-chart w3-xxxlarge"></i></div>
+                    <div class="w3-left"><i class="fa fa-bars w3-xxxlarge" aria-hidden="true"></i></div>
                     <div class="w3-right">
                         <h3>0</h3>
                     </div>
@@ -126,7 +126,7 @@
         </div>
 
         <div class="w3-container w3-row-padding w3-white w3-animate-left">
-            <h2>Processos em Espera</h2>
+            <h2>Listagem</h2>
             <p></p>
             <hr>
             <div class="w3-col s12">
