@@ -79,6 +79,7 @@ $res = mysqli_query($conexao, $select);
 $obj = $res->fetch_object();
 
 ?>
+
 <form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST" action="./editar.php">
 <header class="w3-container" style="padding-top:22px">
     <h3><b><i class="w3-blue"></i> EDIÇÃO DE PROCESSOS </b></h3>
@@ -104,40 +105,40 @@ $obj = $res->fetch_object();
                 name="data_conclusao">Previsão de Entrega: </p>
         </div>
         <div class="w3-col s4">
-            <select class="w3-select" name="status_processo" value="<?= $obj->status_processo ?>" required>
-                <option value="<?= $obj->status_processo ?>" disabled selected> <?= $obj->status_processo ?> - Padrao</option>
-                <option value=""> Iniciado</option>
-                <option value=""> Em Execução</option>
-                <option value=""> Finalizado </option>
+            <select class="w3-select" name="status_processo" required>
+                <option value="<?= $obj->status_processo ?>"  selected> <?= $obj->status_processo ?> - Padrao</option>
+                <option value="Iniciado"> Iniciado</option>
+                <option value="Execução"> Em Execução</option>
+                <option value="Finalizado"> Finalizado </option>
             </select></p></br>
         </div>
         <div class="w3-col s4">
-            <select class="w3-select" name="origem" value="<?= $obj->origem ?>" required>
-                <option value="" disabled selected> Origem:</option>
-                <option value=""> DEPAT</option>
-                <option value=""> DEPCO</option>
-                <option value=""> DITEC</option>
-                <option value=""> SEINFRA</option>
-                <option value=""> AGRONEGÓCIOS</option>
-                <option value=""> CAGEACRE</option>
-                <option value=""> SEPA</option>
-                <option value=""> AMBNE</option>
-                <option value=""> PCAC</option>
-                <option value=""> DEPOB</option>
-                <option value=""> ISE</option>
-                <option value=""> SEPLAG</option>
-                <option value=""> SECRETÁRIO/SEINFRA</option>
-                <option value=""> PGE</option>
-                <option value=""> CASA CIVIL</option>
+            <select class="w3-select" name="origem"  required>
+                <option value="<?= $obj->origem ?>" selected> Origem: <?= $obj->origem ?></option>
+                <option value="DEPAT"> DEPAT</option>
+                <option value="DEPCO"> DEPCO</option>
+                <option value="DITEC"> DITEC</option>
+                <option value="SEINFRA"> SEINFRA</option>
+                <option value="AGRONEGÓCIOS"> AGRONEGÓCIOS</option>
+                <option value="CAGEACRE"> CAGEACRE</option>
+                <option value="SEPA"> SEPA</option>
+                <option value="AMBNE"> AMBNE</option>
+                <option value="PCAC"> PCAC</option>
+                <option value="DEPOB"> DEPOB</option>
+                <option value="ISE"> ISE</option>
+                <option value="SEPLAG"> SEPLAG</option>
+                <option value="SECRETÁRIO/SEINFRA"> SECRETÁRIO/SEINFRA</option>
+                <option value="PGE"> PGE</option>
+                <option value=" CASA CIVIL"> CASA CIVIL</option>
             </select></p></br>
         </div>
 
         <div class="w3-col s4">
-            <select class="w3-select" name="destino" value="<?= $obj->destino ?>" required>
-                <option value="" disabled selected> Destino:</option>
-                <option value=""> Arquitetura</option>
-                <option value=""> Complementares</option>
-                <option value=""> Orçamento</option>
+            <select class="w3-select" name="destino"  required>
+                <option value="<?= $obj->destino ?>" selected> Destino: <?= $obj->destino ?></option>
+                <option value="Arquitetura"> Arquitetura</option>
+                <option value="Complementares"> Complementares</option>
+                <option value="Orçamento"> Orçamento</option>
             </select></p></br>
         </div>
 
@@ -163,10 +164,8 @@ $obj = $res->fetch_object();
         </div>
 
     <div class="w3-container w3-row-padding w3-white" style="margin-left:14%">
-    <input hidden  name="id" value="<?= $obj->id ?>"/>
+    <input hidden  name="id_processo" value="<?= $obj->id_processo ?>"/>
         <p>
-            <input class="w3-button w3-green w3-start w3-round" type="submit"
-                onclick="document.getElementById('form').submit()" value="Buscar" >
             <input class="w3-button w3-blue w3-start w3-round" type="submit"
                 onclick="document.getElementById('form').submit()" value="Salvar">
             <input class="w3-button w3-red w3-start w3-round" type="submit"

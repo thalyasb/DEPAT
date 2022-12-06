@@ -94,7 +94,7 @@ include 'database/conexaobd.php';
 
         <div class="w3-responsive w3-col s12">
             <table class="w3-card-4 w3-table-all w3-margin-top" id="myTable">
-                <tr class="w3-black">
+                <tr class="w3-highway-blue">
                     <td>N° Processo</td>
                     <td>Recebimento</td>
                     <td>Inclusão</td>

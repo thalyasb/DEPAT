@@ -84,10 +84,17 @@
 
         <div class="w3-row-padding w3-margin-bottom w3-animate-left">
             <div class="w3-quarter">
-                <div class="w3-container w3-green w3-padding-16">
+                <div class="w3-container w3-blue w3-padding-16">
                     <div class="w3-left"><i class="fa fa-bars w3-xxxlarge"></i></div>
                     <div class="w3-right">
-                        <h3>0</h3>
+                    <?php $query = "select count(*) as total from processo";
+
+                        $result = mysqli_query($conexao, $query);
+
+                    ?>
+                    <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
+                        <h3><?php echo $row_usuario['total'] ?></h3>
+                    <?php } ?>
                     </div>
                     <div class="w3-clear"></div>
                     <h4>Todos os Processos</h4>
@@ -97,27 +104,48 @@
                 <div class="w3-container w3-red w3-padding-16">
                     <div class="w3-left"><i class="fa fa-bars w3-xxxlarge"></i></div>
                     <div class="w3-right">
-                        <h3>0</h3>
+                    <?php $query = "select count(*) as total_arquitetura from processo where destino = 'arquitetura'";
+
+                        $result = mysqli_query($conexao, $query);
+
+                    ?>
+                    <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
+                        <h3><?php echo $row_usuario['total_arquitetura'] ?></h3>
+                    <?php } ?>
                     </div>
                     <div class="w3-clear"></div>
                     <h4>Processos de Arquitetura</h4>
                 </div>
             </div>
             <div class="w3-quarter">
-                <div class="w3-container w3-teal w3-padding-16">
+                <div class="w3-container w3-green w3-padding-16">
                     <div class="w3-left"><i class="fa fa-bars w3-xxxlarge"></i></div>
                     <div class="w3-right">
-                        <h3>0</h3>
+                    <?php $query = "select count(*) as total_complementares from processo where destino = 'complementares'";
+
+                        $result = mysqli_query($conexao, $query);
+
+                    ?>
+                    <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
+                        <h3><?php echo $row_usuario['total_complementares'] ?></h3>
+                    <?php } ?>
                     </div>
                     <div class="w3-clear"></div>
                     <h4>Processos Complementares</h4>
                 </div>
             </div>
             <div class="w3-quarter">
-                <div class="w3-container w3-blue w3-padding-16">
+                <div class="w3-container w3-text-white w3-padding-16" style="background-color:#e6e600">
                     <div class="w3-left"><i class="fa fa-bars w3-xxxlarge" aria-hidden="true"></i></div>
                     <div class="w3-right">
-                        <h3>0</h3>
+                    <?php $query = "select count(*) as total_orcamento from processo where destino = 'orcamento'";
+
+                        $result = mysqli_query($conexao, $query);
+
+                    ?>
+                    <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
+                        <h3><?php echo $row_usuario['total_orcamento'] ?></h3>
+                    <?php } ?>
                     </div>
                     <div class="w3-clear"></div>
                     <h4> Processos de Orçamento </h4>
@@ -131,18 +159,37 @@
             <hr>
             <div class="w3-col s12">
                 <table class="w3-card-4 w3-table-all w3-margin-top" id="myTable">
-                    <tr class="w3-black">
-                        <th style="width:40%;">Nome</th>
-                        <th style="width:30%;">Status</th>
-                        <th style="width:30%;">Opções</th>
+                    <tr class="w3-highway-blue">
+                        <th style="width:30%;">Número do Processo</th>
+                        <th style="width:25%;">Status</th>
+                        <th style="width:25%;">Origem</th>
+                        <th style="width:20%;">Ação</th>
                     </tr>
-                    
+                    <?php $query = "select * from processo";
+
+                    $result = mysqli_query($conexao, $query);
+
+                    ?>
+
+                    <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
+                        <tr>
+                            <td><?php echo $row_usuario['num'] ?></td>
+                            <td><?php echo $row_usuario['status_processo'] ?></td>
+                            <td><?php echo $row_usuario['origem'] ?></td>
+                            <td>
+                            <form action="documento.php" method="POST">   
+                                <button class="w3-button" type="submit" style="width:100%;"><i class="fa fa-eye"></i> Visualizar</button>
+                            </form>
+                            </td>
+                        </tr>
+                    <?php } ?>
+
                     <tr>
                         <td></td>
                         <td></td>
-                        <td><button class="w3-button" title="Ver Processo" style="width:100%;"><i class="fa fa-eye"></i> Visualizar</button>
+                        
                     </tr>
-     
+
                 </table>
                 <hr>
             </div>

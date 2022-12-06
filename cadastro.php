@@ -158,8 +158,6 @@ h5 {
     </form>
     <div class="w3-container w3-row-padding w3-white" style="margin-left:14%">
         <p>
-            <input class="w3-button w3-green w3-start w3-round" type="submit"
-                onclick="document.getElementById('form').submit()" value="Buscar" >
             <input class="w3-button w3-blue w3-start w3-round" type="submit"
                 onclick="document.getElementById('form').submit()" value="Salvar">
             <input class="w3-button w3-red w3-start w3-round" type="submit"
