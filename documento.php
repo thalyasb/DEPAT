@@ -12,6 +12,7 @@ include 'database/conexaobd.php'; ?>
     integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="shortcut icon" type="imagem/png" href="./public/img/DEPAT (3).png" />
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
 
 <style>
 html,
@@ -28,7 +29,7 @@ h5 {
 <!-- CABEÇALHO -->
 
 <body class="w3-light-grey">
-    <div class="w3-bar w3-top w3-blue w3-large" style="z-index:4">
+    <div class="w3-bar w3-top w3-highway-blue w3-large" style="z-index:4">
         <a class="w3-bar-item w3-button w3-right w3-hover-none w3-hover-text-light-grey" href="logout"><i
                 class="fa fa-times"></i>&nbsp; Sair</a>
         <span class="w3-bar-item w3-left">DEPAT</span>
@@ -71,37 +72,56 @@ h5 {
   <form>
   <div class="w3-responsive w3-center">
 
-                <?php $query = "select * from processo where destino = 'arquitetura'";
+                <?php 
+                        $id = mysqli_real_escape_string($conexao, $_POST['id']);
+                        
+                        $select = "select * from processo p where p.id_processo = " . $id . " LIMIT 1;";
 
-                        $result = mysqli_query($conexao, $query); 
+                        $result = mysqli_query($conexao, $select); 
                         
                 ?> 
-            <div  class="w3-container w3-row-padding w3-white" style="margin-left:14%">
+            <div  class="w3-container  w3-border w3-large w3-white" style="font-family: Arial;">
                 <?php while($row_usuario = mysqli_fetch_assoc($result)){ ?> 
-                    <ul class="w3-ul w3-large" style="margin-left:14%">
-                    
-                    <li><b>Número do processo:</b> <?php echo $row_usuario['num'] ?></li>
-                    
-                    <li><b>Número do Documento:</b><?php echo $row_usuario['documento'] ?></li>
-                    
-                    <li><b>Objeto:</b> <?php echo $row_usuario['objeto'] ?></li>
-                    
-                    <li><b>Projetista:</b> <?php echo $row_usuario['projetista'] ?></li>
-                    
-                    <li><b>Data de Recebimento:</b> <?php echo $row_usuario['data_recebimento'] ?></li>
-                    
-                    <li><b>Data de Inclusão:</b> <?php echo $row_usuario['data_inclusao'] ?></li>
-                   
-                    <li><b>Data de Conclusão:</b> <?php echo $row_usuario['data_conclusao'] ?></li>
-                    
-                    <li><b>Status do Processo:</b> <?php echo $row_usuario['status_processo'] ?></li>
-                    
-                    <li><b>Origem:</b> <?php echo $row_usuario['origem'] ?></li>
-                    
-                    <li><b>Destino:</b> <?php echo $row_usuario['destino'] ?></li>
-                    
-                    <li><b>Detalhes:</b> <?php echo $row_usuario['detalhes'] ?></li>
+                    <ul class="w3-ul w3-large" style="margin-left:14%;">
+                    <br><p>
+                    <img src="public/img/brasao-do-acre.png" style="width:5%">
+                    <br><p>
+                    <b>ESTADO DO ACRE</b><p>
+                    <b>SECRETARIA DE ESTADO DE INFRAESTRUTURA</b>
                     <li></li>
+                    <br><p>
+                    <b>Número do processo:</b> <?php echo $row_usuario['num'] ?>
+                    <br><p>
+                    <b>Número do Documento:</b><?php echo $row_usuario['documento'] ?>
+                    <br><p>
+                    <b>Objeto:</b> <?php echo $row_usuario['objeto'] ?>
+                    <br><p>
+                    <b>Projetista:</b> <?php echo $row_usuario['projetista'] ?>
+                    <br><p>
+                    <b>Data de Recebimento:</b> <?php echo $row_usuario['data_recebimento'] ?>
+                    <br><p>
+                    <b>Data de Inclusão:</b> <?php echo $row_usuario['data_inclusao'] ?>
+                    <br><p>
+                    <b>Data de Conclusão:</b> <?php echo $row_usuario['data_conclusao'] ?>
+                    <br><p>
+                    <b>Status do Processo:</b> <?php echo $row_usuario['status_processo'] ?>
+                    <br><p>
+                    <b>Origem:</b> <?php echo $row_usuario['origem'] ?>
+                    <br><p>
+                    <b>Destino:</b> <?php echo $row_usuario['destino'] ?>
+                    <br><p>
+                    <b>Detalhes:</b> <?php echo $row_usuario['detalhes'] ?>
+                    <li></li>
+
+                    <p style="text-align: right;">
+                    <script language=javascript type="text/javascript">
+                    //nomeMes = new Array ("janeiro", "fevereiro", "março", "abril", "maio", "junho", "agosto", "outubro", "novembro", "dezembro")
+                    now = new Date
+                    </script>
+                    <script language=javascript type="text/javascript" >
+                    document.write ("Rio Branco, Acre, " + now.getDate() + " de " + [now.getMonth()] + " de " + now.getFullYear() )
+                    </script>
+                    </p>
                     </ul>
             </div>
                 <?php } ?> 
