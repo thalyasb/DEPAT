@@ -82,37 +82,58 @@ h5 {
                 ?> 
             <div  class="w3-container  w3-border w3-large w3-white" style="font-family: Arial;">
                 <?php while($row_usuario = mysqli_fetch_assoc($result)){ ?> 
-                    <ul class="w3-ul w3-large" style="margin-left:14%;">
                     <br><p>
                     <img src="public/img/brasao-do-acre.png" style="width:5%">
                     <br><p>
                     <b>ESTADO DO ACRE</b><p>
                     <b>SECRETARIA DE ESTADO DE INFRAESTRUTURA</b>
-                    <li></li>
                     <br><p>
-                    <b>Número do processo:</b> <?php echo $row_usuario['num'] ?>
-                    <br><p>
-                    <b>Número do Documento:</b><?php echo $row_usuario['documento'] ?>
-                    <br><p>
-                    <b>Objeto:</b> <?php echo $row_usuario['objeto'] ?>
-                    <br><p>
-                    <b>Projetista:</b> <?php echo $row_usuario['projetista'] ?>
-                    <br><p>
-                    <b>Data de Recebimento:</b> <?php echo $row_usuario['data_recebimento'] ?>
-                    <br><p>
-                    <b>Data de Inclusão:</b> <?php echo $row_usuario['data_inclusao'] ?>
-                    <br><p>
-                    <b>Data de Conclusão:</b> <?php echo $row_usuario['data_conclusao'] ?>
-                    <br><p>
-                    <b>Status do Processo:</b> <?php echo $row_usuario['status_processo'] ?>
-                    <br><p>
-                    <b>Origem:</b> <?php echo $row_usuario['origem'] ?>
-                    <br><p>
-                    <b>Destino:</b> <?php echo $row_usuario['destino'] ?>
-                    <br><p>
-                    <b>Detalhes:</b> <?php echo $row_usuario['detalhes'] ?>
-                    <li></li>
-
+                    <table class="w3-table-all" style="">
+                        <tr>
+                            <th>Número do processo:</th>
+                            <td><?php echo $row_usuario['num'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Número do Documento:</th>
+                            <td></b><?php echo $row_usuario['documento'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Objeto:</th>
+                            <td><?php echo $row_usuario['objeto'] ?></td>
+                        </tr>    
+                        <tr>
+                            <th>Projetista:</th>
+                            <td><?php echo $row_usuario['projetista'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Data de Recebimento:</th>
+                            <td><?php echo $row_usuario['data_recebimento'] ?></td>
+                        </tr>    
+                        <tr>
+                            <th>Data de Inclusão:</th>
+                            <td><?php echo $row_usuario['data_inclusao'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Data de Conclusão:</th>
+                            <td><?php echo $row_usuario['data_conclusao'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Status do Processo:</th>
+                            <td><?php echo $row_usuario['status_processo'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Origem:</th>
+                            <td><?php echo $row_usuario['origem'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Destino:</th>
+                            <td><?php echo $row_usuario['destino'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Detalhes:</th>
+                            <td><?php echo $row_usuario['detalhes'] ?></td>
+                        </tr>
+                    </table>
                     <p style="text-align: right;">
                     <script language=javascript type="text/javascript">
                     //nomeMes = new Array ("janeiro", "fevereiro", "março", "abril", "maio", "junho", "agosto", "outubro", "novembro", "dezembro")
@@ -122,7 +143,7 @@ h5 {
                     document.write ("Rio Branco, Acre, " + now.getDate() + " de " + [now.getMonth()] + " de " + now.getFullYear() )
                     </script>
                     </p>
-                    </ul>
+
             </div>
                 <?php } ?> 
   </form>

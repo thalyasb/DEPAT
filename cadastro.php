@@ -90,11 +90,11 @@ h5 {
         </div>
 
         <div class="w3-col s4">
-            <input class="w3-input" maxlength="10" type="date" placeholder="Data do Documento" name="data_recebimento"
+            <input class="w3-input" maxlength="10" type="date" required pattern="" placeholder="Data do Documento" name="data_recebimento"
                 name="data_recebimento">Data de Recebimento: </p>
-            <input class="w3-input" maxlength="10" type="date" placeholder="Data do Documento" name="data_inclusao"
+            <input class="w3-input" maxlength="10" type="date" required pattern="" placeholder="Data do Documento" name="data_inclusao"
                 name="data_inclusao">Data de Inicio: </p>
-            <input class="w3-input" maxlength="10" type="date" placeholder="Data de Previsão" name="data_conclusao"
+            <input class="w3-input" maxlength="10" type="date" required pattern="" placeholder="Data de Previsão" name="data_conclusao"
                 name="data_conclusao">Previsão de Entrega: </p>
         </div>
         <div class="w3-col s4">
