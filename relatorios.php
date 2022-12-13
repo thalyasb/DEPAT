@@ -62,6 +62,19 @@ h5 {
         </div>
     </nav>
 
+    <form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST" action="./editaProcesso.php">
+    <header class="w3-container" style="padding-top:22px">
+            
+        <h1>Como gerar PDF com PHP</h1>
+
+        <a href="gerar_pdf.php">Gerar PDF</a>
+        </header>
+    </form>
+
+
+
+
+
     
 
     <!-- SOBREPOSIÇÃO AO ABRIR A BARRA LATERAL -->

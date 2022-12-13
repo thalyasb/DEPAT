@@ -136,11 +136,11 @@ h5 {
                     </table>
                     <p style="text-align: right;">
                     <script language=javascript type="text/javascript">
-                    //nomeMes = new Array ("janeiro", "fevereiro", "março", "abril", "maio", "junho", "agosto", "outubro", "novembro", "dezembro")
+                    //nomeMes = new Array ("janeiro", "fevereiro", "março", "abril", "maio", "junho", "agosto", "outubro", "novembro", "dezembro");
                     now = new Date
                     </script>
                     <script language=javascript type="text/javascript" >
-                    document.write ("Rio Branco, Acre, " + now.getDate() + " de " + [now.getMonth()] + " de " + now.getFullYear() )
+                    document.write ("Rio Branco, Acre, " + now.getDate() + " do " + [now.getMonth()] + " de " + now.getFullYear() )
                     </script>
                     </p>
 

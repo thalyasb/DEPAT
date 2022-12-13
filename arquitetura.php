@@ -79,17 +79,15 @@ include 'database/conexaobd.php';
             <table class="w3-card-4 w3-table-all w3-margin-top" id="myTable">
                 <tr class="w3-highway-blue">
                     <td>N° Processo</td>
-                    <td>Recebimento</td>
-                    <td>Inclusão</td>
-                    <td>Conclusão</td>
                     <td>Status</td>
                     <td>Origem</td>
                     <td>Documento</td>
                     <td>Objeto</td>
                     <td>Projetista</td>
                     <td>Destino</td>
-                    <td>Detalhes</td>
+                    <td></td>
                     <td>Ação</td>
+                    <td></td>
                 </tr>
                 <?php $query = "select * from processo where destino = 'arquitetura'";
 
@@ -100,25 +98,28 @@ include 'database/conexaobd.php';
                 <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
                     <tr>
                         <td><?php echo $row_usuario['num'] ?></td>
-                        <td><?php echo $row_usuario['data_recebimento'] ?></td>
-                        <td><?php echo $row_usuario['data_inclusao'] ?></td>
-                        <td><?php echo $row_usuario['data_conclusao'] ?></td>
                         <td><?php echo $row_usuario['status_processo'] ?></td>
                         <td><?php echo $row_usuario['origem'] ?></td>
                         <td><?php echo $row_usuario['documento'] ?></td>
                         <td><?php echo $row_usuario['objeto'] ?></td>
                         <td><?php echo $row_usuario['projetista'] ?></td>
                         <td><?php echo $row_usuario['destino'] ?></td>
-                        <td><?php echo $row_usuario['detalhes'] ?></td>
                         <td>
                             <form action="editaProcesso.php" method="POST">
                                 <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
-                                <button type="submit"><i class="tiny material-icons">edit</i></button>
+                                <button class="w3-button" type="submit"><i class="tiny material-icons">mode_edit</i></button>
                             </form>
-
+                        </td>
+                        <td>
                             <form action="excluir.php" method="POST">
                                 <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
-                                <button type="submit"><i class="tiny material-icons">delete</i></button>
+                                <button class="w3-button" type="submit"><i class="tiny material-icons">delete</i></button>
+                            </form>
+                        </td>
+                        <td>                        
+                            <form action="documento.php" method="POST">  
+                                <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id"> 
+                                <button class="w3-button" type="submit"><i class="tiny material-icons">visibility</i></button>
                             </form>
                         </td>
                     </tr>

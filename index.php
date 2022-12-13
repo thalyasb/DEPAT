@@ -160,9 +160,10 @@
             <div class="w3-col s12">
                 <table class="w3-card-4 w3-table-all w3-margin-top" id="myTable">
                     <tr class="w3-highway-blue">
-                        <th style="width:30%;">Número do Processo</th>
-                        <th style="width:25%;">Status</th>
-                        <th style="width:25%;">Origem</th>
+                        <th style="width:20%;">Número do Processo</th>
+                        <th style="width:20%;">Status</th>
+                        <th style="width:20%;">Local</th>
+                        <th style="width:20%;">Origem</th>
                         <th style="width:20%;">Ação</th>
                     </tr>
                     <?php $query = "select * from processo ";
@@ -175,6 +176,7 @@
                         <tr>
                             <td><?php echo $row_usuario['num'] ?></td>
                             <td><?php echo $row_usuario['status_processo'] ?></td>
+                            <td><?php echo $row_usuario['destino'] ?></td>
                             <td><?php echo $row_usuario['origem'] ?></td>
                             <td>
                             <form action="documento.php" method="POST">  
@@ -190,9 +192,18 @@
                         <td></td>
                         
                     </tr>
-
                 </table>
+
                 <hr>
+                <div class="w3-bar">
+                        <a href="#" class="w3-button">&laquo;</a>
+                        <a href="#" class="w3-button">1</a>
+                        <a href="#" class="w3-button">2</a>
+                        <a href="#" class="w3-button">3</a>
+                        <a href="#" class="w3-button">4</a>
+                        <a href="#" class="w3-button">5</a>
+                        <a href="#" class="w3-button">&raquo;</a>
+                    </div>
             </div>
         </div>
         <script>
