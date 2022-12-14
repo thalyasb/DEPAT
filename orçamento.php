@@ -1,6 +1,5 @@
 <?php
-include 'database/conexaobd.php';
-?>
+include 'database/conexaobd.php'; ?>
 <!DOCTYPE html>
 <html>
 <title>DEPAT</title>
@@ -95,7 +94,7 @@ include 'database/conexaobd.php';
         <div class="w3-responsive w3-col s12">
             <table class="w3-card-4 w3-table-all w3-margin-top" id="myTable">
                 <tr class="w3-highway-blue">
-                <td>N° Processo</td>
+                    <td>N° Processo</td>
                     <td>Status</td>
                     <td>Origem</td>
                     <td>Documento</td>
@@ -106,46 +105,128 @@ include 'database/conexaobd.php';
                     <td>Ação</td>
                     <td></td>
                 </tr>
-                <?php $query = "select * from processo where destino = 'orcamento'";
+                <?php
+                //verifica a página atual caso seja informada na URL, senão atribui como 1ª página
+                $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 
+                //seleciona todos os itens da tabela
+                $query = "select * from processo where destino = 'orcamento'";
                 $result = mysqli_query($conexao, $query);
 
+                //conta o total de itens
+                $total = mysqli_num_rows($result);
+
+                //seta a quantidade de itens por página, neste caso, 2 itens
+                $registros = 8;
+
+                //calcula o número de páginas arredondando o resultado para cima
+                $numPaginas = ceil($total / $registros);
+
+                //variavel para calcular o início da visualização com base na página atual
+                $inicio = $registros * $pagina - $registros;
+
+                //seleciona os itens por página
+                $query = "select * from processo where destino = 'orcamento' limit $inicio,$registros";
+                $result = mysqli_query($conexao, $query);
+                $total = mysqli_num_rows($result);
                 ?>
 
-                <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
+                <?php //exibe os produtos selecionado
+                while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
                     <tr>
-                    <td><?php echo $row_usuario['num'] ?></td>
-                        <td><?php echo $row_usuario['status_processo'] ?></td>
-                        <td><?php echo $row_usuario['origem'] ?></td>
-                        <td><?php echo $row_usuario['documento'] ?></td>
-                        <td><?php echo $row_usuario['objeto'] ?></td>
-                        <td><?php echo $row_usuario['projetista'] ?></td>
-                        <td><?php echo $row_usuario['destino'] ?></td>
+                        <td><?php echo $row_usuario['num']; ?></td>
+                        <td><?php echo $row_usuario['status_processo']; ?></td>
+                        <td><?php echo $row_usuario['origem']; ?></td>
+                        <td><?php echo $row_usuario['documento']; ?></td>
+                        <td><?php echo $row_usuario['objeto']; ?></td>
+                        <td><?php echo $row_usuario['projetista']; ?></td>
+                        <td><?php echo $row_usuario['destino']; ?></td>
                         <td>
                             <form action="editaProcesso.php" method="POST">
-                                <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
+                                <input hidden type="number" value="<?php echo $row_usuario[
+                                    'id_processo'
+                                ]; ?>" name="id">
                                 <button class="w3-button" type="submit"><i class="tiny material-icons">mode_edit</i></button>
                             </form>
                         </td>
                         <td>
                             <form action="excluir.php" method="POST">
-                                <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
+                                <input hidden type="number" value="<?php echo $row_usuario[
+                                    'id_processo'
+                                ]; ?>" name="id">
                                 <button class="w3-button" type="submit"><i class="tiny material-icons">delete</i></button>
                             </form>
                         </td>
-                        <td>                        
-                            <form action="documento.php" method="POST">  
-                                <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id"> 
+                        <td>
+                            <form action="documento.php" method="POST">
+                                <input hidden type="number" value="<?php echo $row_usuario[
+                                    'id_processo'
+                                ]; ?>" name="id">
                                 <button class="w3-button" type="submit"><i class="tiny material-icons">visibility</i></button>
                             </form>
                         </td>
                     </tr>
                 <?php } ?>
 
-
             </table>
             <p></p>
             <p></p>
+            <?php
+            //exibe a paginação
+
+            if ($pagina > 1) {
+                echo "<a href='orcamento.php?pagina=" .
+                    ($pagina - 1) .
+                    "' class='controle'>&laquo; anterior</a>";
+            }
+
+            for ($i = 1; $i < $numPaginas + 1; $i++) {
+                $ativo = $i == $pagina ? 'numativo' : '';
+                echo "<a href='orcamento.php?pagina=" .
+                    $i .
+                    "' class='numero " .
+                    $ativo .
+                    "'> " .
+                    $i .
+                    ' </a>';
+            }
+
+            if ($pagina < $numPaginas) {
+                echo "<a href='orcamento.php?pagina=" .
+                    ($pagina + 1) .
+                    "' class='controle'>proximo &raquo;</a>";
+            }
+            ?>
+            <style>
+                .numero {
+                    text-decoration: none;
+                    background: #2A85B6;
+                    text-align: center;
+                    padding: 3px 0;
+                    display: block;
+                    margin: 0 2px;
+                    float: left;
+                    width: 20px;
+                    color: #fff;
+                }
+
+                .numero:hover,
+                .numativo,
+                .controle:hover {
+                    background: #1B3B54;
+                }
+
+                .controle {
+                    text-decoration: none;
+                    background: #2A85B6;
+                    text-align: center;
+                    padding: 3px 8px;
+                    display: block;
+                    margin: 0 3px;
+                    float: left;
+                    color: #fff;
+                }
+            </style>
         </div>
 
         <!-- SOBREPOSIÇÃO AO ABRIR A BARRA LATERAL -->

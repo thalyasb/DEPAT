@@ -68,99 +68,10 @@
         <!-- @yield('content') -->
 
     </div>
-
-
-
-
-
-
     <form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST" action="./documento.php">
         <header class="w3-container" style="padding-top:22px">
             <h3><b><i class="w3-blue"></i> PROCESSOS</b></h3>
         </header>
-        <header class="w3-container" style="padding-top:22px">
-            <h5><b><i class="fa fa-clipboard-list"></i> Estatísticas</b></h5>
-        </header>
-
-        <div class="w3-row-padding w3-margin-bottom w3-animate-left">
-            <div class="w3-quarter">
-                <div class="w3-container w3-blue w3-padding-16">
-                    <div class="w3-left"><i class="fa fa-bars w3-xxxlarge"></i></div>
-                    <div class="w3-right">
-                        <?php $query = "select count(*) as total from processo";
-
-                        $result = mysqli_query($conexao, $query);
-
-                        ?>
-                        <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
-                            <h3><?php echo $row_usuario['total'] ?></h3>
-                        <?php } ?>
-                    </div>
-                    <div class="w3-clear"></div>
-                    <a href="listagem.php">
-                        <h4>Todos os Processos</h4>
-                    </a>
-                </div>
-            </div>
-            <div class="w3-quarter">
-                <div class="w3-container w3-red w3-padding-16">
-                    <div class="w3-left"><i class="fa fa-bars w3-xxxlarge"></i></div>
-                    <div class="w3-right">
-                        <?php $query = "select count(*) as total_arquitetura from processo where destino = 'arquitetura'";
-
-                        $result = mysqli_query($conexao, $query);
-
-                        ?>
-                        <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
-                            <h3><?php echo $row_usuario['total_arquitetura'] ?></h3>
-                        <?php } ?>
-                    </div>
-                    <div class="w3-clear"></div>
-                    <a href="arquitetura.php">
-                        <h4>Processos de Arquitetura</h4>
-                    </a>
-                </div>
-            </div>
-            <div class="w3-quarter">
-                <div class="w3-container w3-green w3-padding-16">
-                    <div class="w3-left"><i class="fa fa-bars w3-xxxlarge"></i></div>
-                    <div class="w3-right">
-                        <?php $query = "select count(*) as total_complementares from processo where destino = 'complementares'";
-
-                        $result = mysqli_query($conexao, $query);
-
-                        ?>
-                        <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
-                            <h3><?php echo $row_usuario['total_complementares'] ?></h3>
-                        <?php } ?>
-                    </div>
-                    <div class="w3-clear"></div>
-                    <a href="complementares.php">
-                        <h4>Processos Complementares</h4>
-                    </a>
-                </div>
-            </div>
-            <div class="w3-quarter">
-                <div class="w3-container w3-text-white w3-padding-16" style="background-color:#e6e600">
-                    <div class="w3-left"><i class="fa fa-bars w3-xxxlarge" aria-hidden="true"></i></div>
-                    <div class="w3-right">
-                        <?php $query = "select count(*) as total_orcamento from processo where destino = 'orcamento'";
-
-                        $result = mysqli_query($conexao, $query);
-
-                        ?>
-                        <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
-                            <h3><?php echo $row_usuario['total_orcamento'] ?></h3>
-                        <?php } ?>
-                    </div>
-                    <div class="w3-clear"></div>
-                    <a href="orçamento.php">
-                        <h4> Processos de Orçamento </h4>
-                    </a>
-                </div>
-            </div>
-        </div>
-
         <div class="w3-container w3-row-padding w3-white w3-animate-left">
             <h2>Listagem</h2>
             <p></p>
@@ -185,7 +96,7 @@
                     //conta o total de itens 
                     $total = mysqli_num_rows($result);
                     //seta a quantidade de itens por página, neste caso, 2 itens 
-                    $registros = 5;
+                    $registros = 8;
 
                     //calcula o número de páginas arredondando o resultado para cima 
                     $numPaginas = ceil($total / $registros);
@@ -230,16 +141,16 @@
 
 
                 if ($pagina > 1) {
-                    echo "<a href='index.php?pagina=" . ($pagina - 1) . "' class='controle'>&laquo; anterior</a>";
+                    echo "<a href='listagem.php?pagina=" . ($pagina - 1) . "' class='controle'>&laquo; anterior</a>";
                 }
 
                 for ($i = 1; $i < $numPaginas + 1; $i++) {
                     $ativo = ($i == $pagina) ? 'numativo' : '';
-                    echo "<a href='index.php?pagina=" . $i . "' class='numero " . $ativo . "'> " . $i . " </a>";
+                    echo "<a href='listagem.php?pagina=" . $i . "' class='numero " . $ativo . "'> " . $i . " </a>";
                 }
 
                 if ($pagina < $numPaginas) {
-                    echo "<a href='index.php?pagina=" . ($pagina + 1) . "' class='controle'>proximo &raquo;</a>";
+                    echo "<a href='listagem.php?pagina=" . ($pagina + 1) . "' class='controle'>proximo &raquo;</a>";
                 }
                 ?>
                 <style>
@@ -274,8 +185,6 @@
                 </style>
             </div>
         </div>
-
-        
         <script>
 
         </script>
@@ -285,7 +194,7 @@
         </div>
         </div>
         </div>
-
+    
         <script>
             // Get the Sidebar
             var mySidebar = document.getElementById("mySidebar");

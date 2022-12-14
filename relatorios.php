@@ -65,32 +65,10 @@ h5 {
     <form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST" action="./editaProcesso.php">
     <header class="w3-container" style="padding-top:22px">
             
-    <?php
+        <h1>GERANDOOOO PDFFFFFF</h1>
 
-    //carregar composer
-    require './vendor/autoload.php';
-
-    // Referenciar o namespace Dompdf
-    use Dompdf\Dompdf;
-
-    // Instanciar e usar a classe Dompdf
-    $dompdf = new Dompdf();
-
-    //Instanciar o metodo loadHtml e enviar o conteudo do PDF
-    $dompdf->load_html($documento);
-
-    //formato do pdf
-    $dompdf->set_paper('A4', 'portrait');
-
-    //renderizar no html
-    $dompdf->render();
-
-    // Gerar o PDF
-    $dompdf->stream();
-
-
-    ?>
-        
+        <a href="gerar_pdf.php">Gerar PDF</a>
+        </header>
     </form>
 
 
