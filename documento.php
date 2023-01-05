@@ -21,8 +21,12 @@ h1,
 h2,
 h3,
 h4,
+p,
+b,
+td,
+th,
 h5 {
-    font-family: "Raleway", sans-serif
+    font-family: "Raleway", sans-serif;
 }
 </style>
 
@@ -66,11 +70,11 @@ h5 {
         </div>
     </nav>
 
-<div class="w3-container w3-row-padding w3-white w3-center" style="margin-left:14%">
+<div class="w3-container w3-row-padding w3-white w3-center" style="margin-left:14%;">
   <h1>Informações Gerais do Processo</h1>
 
   <form>
-  <div class="w3-responsive w3-center">
+    <div class="w3-responsive w3-center"  id="printableArea">
 
                 <?php 
                         $id = mysqli_real_escape_string($conexao, $_POST['id']);
@@ -80,15 +84,16 @@ h5 {
                         $result = mysqli_query($conexao, $select); 
                         
                 ?> 
-            <div  class="w3-container  w3-border w3-large w3-white" style="font-family: Arial;">
+            <div class="w3-container w3-border w3-large w3-white" >
+                
                 <?php while($row_usuario = mysqli_fetch_assoc($result)){ ?> 
                     <br><p>
                     <img src="public/img/brasao-do-acre.png" style="width:5%">
                     <br><p>
-                    <b>ESTADO DO ACRE</b><p>
-                    <b>SECRETARIA DE ESTADO DE INFRAESTRUTURA</b>
+                    <h3>ESTADO DO ACRE</b><h3>
+                    <h3>SECRETARIA DE ESTADO DE OBRAS PÚBLICAS</h3>
                     <br><p>
-                    <table class="w3-table-all" style="">
+                    <table class="w3-table-all">
                         <tr>
                             <th>Número do processo:</th>
                             <td><?php echo $row_usuario['num'] ?></td>
@@ -130,24 +135,34 @@ h5 {
                             <td><?php echo $row_usuario['destino'] ?></td>
                         </tr>
                         <tr>
-                            <th>Detalhes:</th>
-                            <td><?php echo $row_usuario['detalhes'] ?></td>
-                        </tr>
+                            <th>Disciplinas:</th>
+                            <td><?php echo $row_usuario['disciplinas'] ?></td>
+                        </tr>   
                     </table>
-                    <p style="text-align: right;">
-                    <script language=javascript type="text/javascript">
-                    //nomeMes = new Array ("janeiro", "fevereiro", "março", "abril", "maio", "junho", "agosto", "outubro", "novembro", "dezembro");
-                    now = new Date
-                    </script>
-                    <script language=javascript type="text/javascript" >
-                    document.write ("Rio Branco, Acre, " + now.getDate() + " do " + [now.getMonth()] + " de " + now.getFullYear() )
-                    </script>
-                    </p>
-
-            </div>
+                    <br>                                  
                 <?php } ?> 
+            </div>
+            <br>
+    </div>
+            <input class="w3-button w3-blue w3-start w3-round" type="button" onclick="printDiv('printableArea')" value="Imprimir"/>
   </form>
+
 </div>
+
+ 
+<script>
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+
 
 
 </body>

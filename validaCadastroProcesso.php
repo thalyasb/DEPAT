@@ -14,15 +14,16 @@ $status_processo = mysqli_real_escape_string($conexao, $_POST['status_processo']
 $origem = mysqli_real_escape_string($conexao, $_POST['origem']);
 $destino = mysqli_real_escape_string($conexao, $_POST['destino']);
 $detalhes = mysqli_real_escape_string($conexao, $_POST['detalhes']);
+$disciplinas = mysqli_real_escape_string($conexao, $_POST['disciplinas']);
 
 $_SESSION['message'] = "Cadastro Efetuado!";
 if(isset($_SESSION['message'])){
     echo $_SESSION['message']; 
 }
 
-$query = "insert into processo (num, documento, objeto, projetista, data_recebimento, data_inclusao, data_conclusao, status_processo, origem, destino, detalhes) 
+$query = "insert into processo (num, documento, objeto, projetista, data_recebimento, data_inclusao, data_conclusao, status_processo, origem, destino, detalhes, disciplinas) 
 values ( '" . $num . "','" . $documento . "','" . $objeto . "','" . $projetista . "','" . $data_recebimento . "','" . $data_inclusao . "','" . $data_conclusao . "',
-            '" . $status_processo . "','" . $origem . "','" . $destino . "','" . $detalhes . "')";
+            '" . $status_processo . "','" . $origem . "','" . $destino . "','" . $detalhes . "','" . $disciplinas . "')";
             
             try {
                 $result =  mysqli_query($conexao, $query);

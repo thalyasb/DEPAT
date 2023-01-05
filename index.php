@@ -17,6 +17,10 @@
     h2,
     h3,
     h4,
+    p,
+    b,
+    td,
+    th,
     h5 {
         font-family: "Raleway", sans-serif
     }
@@ -97,7 +101,7 @@
                         <?php } ?>
                     </div>
                     <div class="w3-clear"></div>
-                    <a href="listagem.php">
+                    <a href="relatorios.php">
                         <h4>Todos os Processos</h4>
                     </a>
                 </div>
@@ -166,6 +170,7 @@
             <p></p>
             <hr>
             <div class="w3-col s12">
+            <input class="w3-input w3-border w3-padding" type="text" placeholder="Pesquisar Número do Processo..." id="myInput" onkeyup="myFunction()">
                 <table class="w3-card-4 w3-table-all w3-margin-top" id="myTable">
                     <tr class="w3-highway-blue">
                         <th style="width:20%;">Número do Processo</th>
@@ -184,8 +189,9 @@
 
                     //conta o total de itens 
                     $total = mysqli_num_rows($result);
+
                     //seta a quantidade de itens por página, neste caso, 2 itens 
-                    $registros = 5;
+                    $registros = 15;
 
                     //calcula o número de páginas arredondando o resultado para cima 
                     $numPaginas = ceil($total / $registros);
@@ -222,14 +228,13 @@
                         <td></td>
 
                     </tr>
-                </table>
 
-                <hr>
+                </table>
+                <br>
+           
                 <?php
                 //exibe a paginação 
-
-
-                if ($pagina > 1) {
+                 if ($pagina > 1) {
                     echo "<a href='index.php?pagina=" . ($pagina - 1) . "' class='controle'>&laquo; anterior</a>";
                 }
 
@@ -242,6 +247,10 @@
                     echo "<a href='index.php?pagina=" . ($pagina + 1) . "' class='controle'>proximo &raquo;</a>";
                 }
                 ?>
+                <br>
+                <br>
+                <br>
+                 <hr>
                 <style>
                     .numero {
                         text-decoration: none;
