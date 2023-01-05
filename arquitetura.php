@@ -152,8 +152,7 @@ include 'database/conexaobd.php'; ?>
                     </tr>
                 <?php } ?>
             </table>
-            <p></p>
-            <p></p>
+            <br>
             <?php
             //exibe a paginação
 
@@ -180,6 +179,10 @@ include 'database/conexaobd.php'; ?>
                     "' class='controle'>proximo &raquo;</a>";
             }
             ?>
+                <br>
+                <br>
+                <br>
+                 <hr>
             <style>
                 .numero {
                     text-decoration: none;

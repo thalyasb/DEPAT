@@ -78,7 +78,7 @@
 
 
 
-    <form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST" action="./documento.php">
+    <form class="w3-container w3-row-padding w3-white" style="margin-left:14%;" id="form" method="POST" action="./documento.php">
         <header class="w3-container" style="padding-top:22px">
             <h3><b><i class="w3-blue"></i> PROCESSOS</b></h3>
         </header>
@@ -216,7 +216,7 @@
                             <td>
                                 <form action="documento.php" method="POST">
                                     <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
-                                    <button class="w3-button" type="submit" style="width:100%;"><i class="fa fa-eye"></i> Visualizar</button>
+                                    <button class="w3-button" type="submit" style="width:40%;"><i class="fa fa-eye"></i> Visualizar</button>
                                 </form>
                             </td>
                         </tr>

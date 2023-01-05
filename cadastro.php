@@ -168,7 +168,6 @@ h5 {
                 onclick="document.getElementById('form').submit()" value="Cancelar">
         </p>
     </div>
-    <br>
 
     <!-- SOBREPOSIÇÃO AO ABRIR A BARRA LATERAL -->
     <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="close(mySidebar)" style="cursor:pointer"

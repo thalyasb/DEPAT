@@ -96,7 +96,7 @@
                     //conta o total de itens 
                     $total = mysqli_num_rows($result);
                     //seta a quantidade de itens por página, neste caso, 2 itens 
-                    $registros = 10;
+                    $registros = 15;
 
                     //calcula o número de páginas arredondando o resultado para cima 
                     $numPaginas = ceil($total / $registros);
@@ -121,7 +121,7 @@
                             <td>
                                 <form action="documento.php" method="POST">
                                     <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
-                                    <button class="w3-button" type="submit" style="width:100%;"><i class="fa fa-eye"></i> Visualizar</button>
+                                    <button class="w3-button" type="submit" style="width:40%;"><i class="fa fa-eye"></i> Visualizar</button>
                                 </form>
                             </td>
                         </tr>
@@ -135,7 +135,7 @@
                     </tr>
                 </table>
 
-                <hr>
+                <br>
                 <?php
                 //exibe a paginação 
 
@@ -153,6 +153,10 @@
                     echo "<a href='relatorios.php?pagina=" . ($pagina + 1) . "' class='controle'>proximo &raquo;</a>";
                 }
                 ?>
+                <br>
+                <br>
+                <br>
+                 <hr>
                 <style>
                     .numero {
                         text-decoration: none;

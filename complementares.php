@@ -166,8 +166,7 @@ while ($row_usuario = mysqli_fetch_assoc($result)) {?>
 
 
             </table>
-            <p></p>
-            <p></p>
+            <br>
             <?php
 //exibe a paginação
 
@@ -184,6 +183,10 @@ if ($pagina < $numPaginas) {
     echo "<a href='complementares.php?pagina=" . ($pagina + 1) . "' class='controle'>proximo &raquo;</a>";
 }
 ?>
+                <br>
+                <br>
+                <br>
+                 <hr>
             <style>
                 .numero {
                     text-decoration: none;
