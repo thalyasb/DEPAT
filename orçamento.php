@@ -13,6 +13,30 @@ include 'database/conexaobd.php'; ?>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="shortcut icon" type="imagem/png" href="./public/img/depatlogo.png" />
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
+<script type="text/javascript" src="./public/js/jquery.js"> </script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
+<script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+<script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+        language: {
+            lengthMenu: '_MENU_ Processos por página',
+            search: 'Busca: ',
+            zeroRecords: 'Nenhuma informação encontrada.',
+            info: 'Mostrando _PAGE_ de _PAGES_',
+            infoEmpty: 'No records available',
+            infoFiltered: '(Total de _MAX_ processos)',
+            paginate:{
+                previous: 'Anterior',
+                next: 'Próximo'
+            }
+        },
+    });
+        });
+    </script>
+
 
 
 
@@ -87,54 +111,39 @@ include 'database/conexaobd.php'; ?>
 
     <form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST" action="./editaProcesso.php">
         <header class="w3-container" style="padding-top:22px">
-            <h3><b><i class="w3-blue"></i> PROCESSOS DE ORÇAMENTO</b></h3>
+            <h3><b><i class="w3-blue"></i> PROCESSOS ORÇAMENTARES</b></h3>
             <p></p>
             <hr>
         </header>
-        <div class="w3-responsive w3-col s12">
-            <table class="w3-card-4 w3-table-all w3-margin-top" id="myTable">
-                <tr class="w3-highway-blue">
-                    <td>N° Processo</td>
-                    <td>Status</td>
-                    <td>Origem</td>
-                    <td>Documento</td>
-                    <td>Objeto</td>
-                    <td>Projetista</td>
-                    <td>Destino</td>
-                    <td></td>
-                    <td>Ação</td>
-                    <td></td>
-                </tr>
-                <?php
-                //verifica a página atual caso seja informada na URL, senão atribui como 1ª página
-                $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
-
-                //seleciona todos os itens da tabela
-                $query = "select * from processo where destino = 'orcamento'";
-                $result = mysqli_query($conexao, $query);
-
-                //conta o total de itens
-                $total = mysqli_num_rows($result);
-
-                //seta a quantidade de itens por página, neste caso, 2 itens
-                $registros = 8;
-
-                //calcula o número de páginas arredondando o resultado para cima
-                $numPaginas = ceil($total / $registros);
-
-                //variavel para calcular o início da visualização com base na página atual
-                $inicio = $registros * $pagina - $registros;
-
-                //seleciona os itens por página
-                $query = "select * from processo where destino = 'orcamento' limit $inicio,$registros";
-                $result = mysqli_query($conexao, $query);
-                $total = mysqli_num_rows($result);
-                ?>
-
-                <?php //exibe os produtos selecionado
-                while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
+        <div class="w3-container w3-row-padding w3-white w3-animate-left">             
+                    <table id="myTable">
+                    <thead>
                     <tr>
-                        <td><?php echo $row_usuario['num']; ?></td>
+                        <th>N° Processo</th>
+                        <th>Status</th>
+                        <th>Origem</th>
+                        <th>Documento</th>
+                        <th>Objeto</th>
+                        <th>Projetista</th>
+                        <th>Destino</th>
+                        <th></th>
+                        <th>Ação</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                     //seleciona todos os itens da tabela    
+                     $query = "select * from processo where destino = 'orcamento'";
+                     $result = mysqli_query($conexao, $query);
+ 
+                     //conta o total de itens 
+                     $total = mysqli_num_rows($result);
+ 
+                    //exibe os produtos selecionados
+                    while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
+                    <tr>
+                    <td><?php echo $row_usuario['num']; ?></td>
                         <td><?php echo $row_usuario['status_processo']; ?></td>
                         <td><?php echo $row_usuario['origem']; ?></td>
                         <td><?php echo $row_usuario['documento']; ?></td>
@@ -166,70 +175,66 @@ include 'database/conexaobd.php'; ?>
                             </form>
                         </td>
                     </tr>
-                <?php } ?>
+                    <?php } ?>
+                    <tbody>
+                    </table>
+               
+                <style>
+                    * {
+                    margin: 0;
+                    padding: 0;
+                    }
 
-            </table>
-            <br>
-            <?php
-            //exibe a paginação
+                    body {
+                    background-color: #fafafa;
+                    }
 
-            if ($pagina > 1) {
-                echo "<a href='orcamento.php?pagina=" .
-                    ($pagina - 1) .
-                    "' class='controle'>&laquo; anterior</a>";
-            }
+                    table {
+                    color: #333;
+                    font-size: .9em;
+                    text-align:center;
+                    font-weight: 300;
+                    line-height: 40px;
+                    border-collapse: separate;
+                    border-spacing: 0;
+                    border: 2px solid #00477e;
+                    width: 1550px;
+                    margin: 50px auto;
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,.16);
+                    border-radius: 2px;
+                    }
 
-            for ($i = 1; $i < $numPaginas + 1; $i++) {
-                $ativo = $i == $pagina ? 'numativo' : '';
-                echo "<a href='orcamento.php?pagina=" .
-                    $i .
-                    "' class='numero " .
-                    $ativo .
-                    "'> " .
-                    $i .
-                    ' </a>';
-            }
-
-            if ($pagina < $numPaginas) {
-                echo "<a href='orcamento.php?pagina=" .
-                    ($pagina + 1) .
-                    "' class='controle'>proximo &raquo;</a>";
-            }
-            ?>
-                <br>
-                <br>
-                <br>
-                 <hr>
-            <style>
-                .numero {
-                    text-decoration: none;
-                    background: #2A85B6;
-                    text-align: center;
-                    padding: 3px 0;
-                    display: block;
-                    margin: 0 2px;
-                    float: left;
-                    width: 20px;
+                    th {
+                    background: #00477e;
                     color: #fff;
-                }
+                    border: none;
+                    }
 
-                .numero:hover,
-                .numativo,
-                .controle:hover {
-                    background: #1B3B54;
-                }
+                    tr:hover:not(th) {background-color: rgba(0,0,0,.16);}
 
-                .controle {
-                    text-decoration: none;
-                    background: #2A85B6;
-                    text-align: center;
-                    padding: 3px 8px;
-                    display: block;
-                    margin: 0 3px;
-                    float: left;
-                    color: #fff;
-                }
-            </style>
+
+                    input[type="button"] {
+                    transition: all .3s;
+                        border: 1px solid #ddd;
+                        padding: 8px 16px;
+                        text-decoration: none;
+                        border-radius: 5px;
+                    font-size: 15px;
+                    }
+
+                    input[type="button"]:not(.active) {
+                    background-color:transparent;
+                    }
+
+                    .active {
+                    background-color: #2A85B6;
+                    color :#fff;
+                    }
+
+                    input[type="button"]:hover:not(.active) {
+                    background-color: #ddd;
+                    }
+                </style>
         </div>
 
         <!-- SOBREPOSIÇÃO AO ABRIR A BARRA LATERAL -->
