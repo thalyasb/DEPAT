@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<link href='https://css.gg/file-document.css' rel='stylesheet'><link href='https://css.gg/home.css' rel='stylesheet'>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -15,10 +16,10 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 <link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
 <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
-  
-  <script>
-        $(document).ready(function () {
-            $('#myTable').DataTable({
+
+<script>
+$(document).ready(function() {
+    $('#myTable').DataTable({
         language: {
             lengthMenu: '_MENU_ Processos por página',
             search: 'Busca: ',
@@ -26,14 +27,14 @@
             info: 'Mostrando _PAGE_ de _PAGES_',
             infoEmpty: 'No records available',
             infoFiltered: '(Total de _MAX_ processos)',
-            paginate:{
+            paginate: {
                 previous: 'Anterior',
                 next: 'Próximo'
             }
         },
     });
-        });
-    </script>
+});
+</script>
 
 
 
@@ -49,7 +50,7 @@ b,
 td,
 th,
 h5 {
-    font-family: "Raleway", sans-serif
+    font-family: "Raleway", sans-serif;
 }
 </style>
 
@@ -197,12 +198,13 @@ h5 {
         </div>
 
         <div class="w3-container w3-row-padding w3-white w3-animate-left">
+            <hr>
             <h2>Listagem</h2>
             <p></p>
-            <hr>                  
-                    <table id="myTable">
-                    <br>
-                    <thead>
+
+            <table id="myTable">
+                <br>
+                <thead>
                     <tr>
                         <th>Número do Processo</th>
                         <th>Status</th>
@@ -210,8 +212,8 @@ h5 {
                         <th>Origem</th>
                         <th>Ação</th>
                     </tr>
-                    </thead>
-                    <tbody>
+                </thead>
+                <tbody>
                     <?php
                      //seleciona todos os itens da tabela    
                      $query = "select * from processo";
@@ -230,110 +232,112 @@ h5 {
                         <td>
                             <form action="documento.php" method="POST">
                                 <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
-                                <button class="w3-button" type="submit" style="width:40%;"><i class="fa fa-eye"></i> Visualizar</button>
+                                <button class="w3-button" type="submit" style="width:40%;"><i class="gg-file-document">Ver Documento</i></button>
                             </form>
                         </td>
                     </tr>
                     <?php } ?>
-                    <tbody>
-                    </table>
-               
-                <style>
-                    * {
-                    margin: 0;
-                    padding: 0;
-                    }
+                <tbody>
+            </table>
 
-                    body {
-                    background-color: #fafafa;
-                    }
+            <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
 
-                    table {
-                    color: #333;
-                    font-size: .9em;
-                    text-align:center;
-                    font-weight: 300;
-                    line-height: 40px;
-                    border-collapse: separate;
-                    border-spacing: 0;
-                    border: 2px solid #00477e;
-                    width: 1550px;
-                    margin: 50px auto;
-                    box-shadow: 0 4px 8px 0 rgba(0,0,0,.16);
-                    border-radius: 2px;
-                    }
+            body {
+                background-color: #fafafa;
+            }
 
-                    th {
-                    background: #00477e;
-                    color: #fff;
-                    border: none;
-                    }
+            table {
+                color: #333;
+                font-size: .9em;
+                text-align: center;
+                font-weight: 300;
+                line-height: 40px;
+                border-collapse: separate;
+                border-spacing: 0;
+                border: 2px solid #00477e;
+                width: 1550px;
+                margin: 50px auto;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .16);
+                border-radius: 2px;
+            }
 
-                    tr:hover:not(th) {background-color: rgba(0,0,0,.16);}
+            th {
+                background: #00477e;
+                color: #fff;
+                border: none;
+            }
+
+            tr:hover:not(th) {
+                background-color: rgba(0, 0, 0, .16);
+            }
 
 
-                    input[type="button"] {
-                    transition: all .3s;
-                        border: 1px solid #ddd;
-                        padding: 8px 16px;
-                        text-decoration: none;
-                        border-radius: 5px;
-                    font-size: 15px;
-                    }
+            input[type="button"] {
+                transition: all .3s;
+                border: 1px solid #ddd;
+                padding: 8px 16px;
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 15px;
+            }
 
-                    input[type="button"]:not(.active) {
-                    background-color:transparent;
-                    }
+            input[type="button"]:not(.active) {
+                background-color: transparent;
+            }
 
-                    .active {
-                    background-color: #2A85B6;
-                    color :#fff;
-                    }
+            .active {
+                background-color: #2A85B6;
+                color: #fff;
+            }
 
-                    input[type="button"]:hover:not(.active) {
-                    background-color: #ddd;
-                    }
-                </style>
-                <br>
-                <br>
-                <br>
-                <hr>
-                <style>
-                .numero {
-                    text-decoration: none;
-                    background: #2A85B6;
-                    text-align: center;
-                    padding: 3px 0;
-                    display: block;
-                    margin: 0 2px;
-                    float: left;
-                    width: 20px;
-                    color: #fff;
-                }
+            input[type="button"]:hover:not(.active) {
+                background-color: #ddd;
+            }
+            </style>
+            <br>
+            <br>
+            <br>
+            <hr>
+            <style>
+            .numero {
+                text-decoration: none;
+                background: #2A85B6;
+                text-align: center;
+                padding: 3px 0;
+                display: block;
+                margin: 0 2px;
+                float: left;
+                width: 20px;
+                color: #fff;
+            }
 
-                .numero:hover,
-                .numativo,
-                .controle:hover {
-                    background: #1B3B54;
-                }
-                
-                .controle {
-                    text-decoration: none;
-                    background: #2A85B6;
-                    text-align: center;
-                    padding: 3px 8px;
-                    display: block;
-                    margin: 0 3px;
-                    float: left;
-                    color: #fff;
-                }
-                </style>
-            </div>
+            .numero:hover,
+            .numativo,
+            .controle:hover {
+                background: #1B3B54;
+            }
+
+            .controle {
+                text-decoration: none;
+                background: #2A85B6;
+                text-align: center;
+                padding: 3px 8px;
+                display: block;
+                margin: 0 3px;
+                float: left;
+                color: #fff;
+            }
+            </style>
+        </div>
         </div>
 
 
         <script>
-            
+
         </script>
         <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap">
@@ -346,12 +350,12 @@ h5 {
         </div>
 
         <script>
-            // Get the Sidebar
-            var mySidebar = document.getElementById("mySidebar");
-            
-            // Get the DIV with overlay effect
-            var overlayBg = document.getElementById("myOverlay");
-            
+        // Get the Sidebar
+        var mySidebar = document.getElementById("mySidebar");
+
+        // Get the DIV with overlay effect
+        var overlayBg = document.getElementById("myOverlay");
+
         // Toggle between showing and hiding the sidebar, and add overlay effect
         function w3_open() {
             if (mySidebar.style.display === 'block') {
@@ -359,15 +363,15 @@ h5 {
             } else {
                 mySidebar.style.display = 'block';
             }
-            
+
         }
-        
+
         // Close the sidebar with the close button
         function w3_close() {
             mySidebar.style.display = "none";
             overlayBg.style.display = "none";
         }
-        
+
         /*function myFunction(id) {
             var x = document.getElementById(id);
             if (x.className.indexOf("w3-show") == -1) {
@@ -376,7 +380,7 @@ h5 {
                 x.className = x.className.replace(" w3-show", "");
             }
         }*/
-        
+
         function myFunction() {
             var input, filter, table, tr, td, i;
             input = document.getElementById("myInput");
