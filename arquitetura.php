@@ -39,8 +39,6 @@ include 'database/conexaobd.php'; ?>
         });
     </script>
 
-
-
 <style>
     html,
     body,

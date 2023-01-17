@@ -135,29 +135,26 @@ h5 {
             </select></p></br>
         </div>
 
-
-
-        
-
-        <div class="w3-col s4" name="disciplinas" required>
+        <div class="w3-col s4" id="check" multiple name="disciplinas" required>
                 <p value="">Disciplinas:</p>
                 <input class="w3-check" type="checkbox" name="disciplinas" value="Estrutural">
-                <label>Estrutural</label><br>
+                    <label>Estrutural</label><br>
                 <input class="w3-check" type="checkbox" name="disciplinas" value="Instalações Hidrossanitárias">
-                <label>Instalações Hidrossanitárias</label><br>
+                    <label>Instalações Hidrossanitárias</label><br>
                 <input class="w3-check" type="checkbox" name="disciplinas" value="Instalações Elétricas">
-                <label>Instalações Elétricas</label><br>
+                    <label>Instalações Elétricas</label><br>
                 <input class="w3-check" type="checkbox" name="disciplinas" value="Climatização">
-                <label>Climatização</label><br>
+                    <label>Climatização</label><br>
                 <input class="w3-check" type="checkbox" name="disciplinas" value="Combate Incêndio e Pânico">
-                <label>Combate Incêndio e Pânico</label><br>
+                    <label>Combate Incêndio e Pânico</label><br>
                 <input class="w3-check" type="checkbox" name="disciplinas" value="Drenagem Pluvial">
-                <label>Drenagem Pluvial</label><br>
+                    <label>Drenagem Pluvial</label><br>
                 <br>
                 <br>
                 <br>
                 <label>Outras Disciplinas:</label>
                 <input class="w3-input w3-border" name="detalhes" type="text">
+           
         </div>
     </form>
     <div class="w3-container w3-row-padding w3-white" style="margin-left:14%">

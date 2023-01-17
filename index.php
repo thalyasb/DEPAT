@@ -108,7 +108,6 @@ h5 {
 
     </div>
 
-
     <form class="w3-container w3-row-padding w3-white" style="margin-left:14%;" id="form" method="POST"
         action="./documento.php">
         <header class="w3-container" style="padding-top:22px">
@@ -118,9 +117,9 @@ h5 {
             <h5><b><i class="fa fa-clipboard-list"></i> Estatísticas</b></h5>
         </header>
 
-        <div class="w3-row-padding w3-margin-bottom w3-animate-left">
+        <div class="w3-row-padding w3-text-white w3-margin-bottom w3-animate-left">
             <div class="w3-quarter">
-                <div class="w3-container w3-blue w3-padding-16">
+                <div class="w3-container w3-padding-16" style="background-color: #76C893;">
                     <div class="w3-left"><i class="fa fa-bars w3-xxxlarge"></i></div>
                     <div class="w3-right">
                         <?php $query = "select count(*) as total from processo";
@@ -139,7 +138,7 @@ h5 {
                 </div>
             </div>
             <div class="w3-quarter">
-                <div class="w3-container w3-red w3-padding-16">
+                <div class="w3-container w3-text-white w3-padding-16" style="background-color: #52B69A;">
                     <div class="w3-left"><i class="fa fa-bars w3-xxxlarge"></i></div>
                     <div class="w3-right">
                         <?php $query = "select count(*) as total_arquitetura from processo where destino = 'arquitetura'";
@@ -158,7 +157,7 @@ h5 {
                 </div>
             </div>
             <div class="w3-quarter">
-                <div class="w3-container w3-green w3-padding-16">
+                <div class="w3-container w3-text-white w3-padding-16 "style="background-color: #34A0A4;">
                     <div class="w3-left"><i class="fa fa-bars w3-xxxlarge"></i></div>
                     <div class="w3-right">
                         <?php $query = "select count(*) as total_complementares from processo where destino = 'complementares'";
@@ -177,7 +176,7 @@ h5 {
                 </div>
             </div>
             <div class="w3-quarter">
-                <div class="w3-container w3-text-white w3-padding-16" style="background-color:#e6e600">
+                <div class="w3-container w3-text-white w3-padding-16" style="background-color:#168AAD">
                     <div class="w3-left"><i class="fa fa-bars w3-xxxlarge" aria-hidden="true"></i></div>
                     <div class="w3-right">
                         <?php $query = "select count(*) as total_orcamento from processo where destino = 'orcamento'";
@@ -232,7 +231,7 @@ h5 {
                         <td>
                             <form action="documento.php" method="POST">
                                 <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
-                                <button class="w3-button" type="submit" style="width:40%;"><i class="gg-file-document">Ver Documento</i></button>
+                                <button class="w3-button" type="submit" style="width:40%;"><i class="gg-file-document"></i></button>
                             </form>
                         </td>
                     </tr>
