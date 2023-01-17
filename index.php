@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<link href='https://css.gg/file-document.css' rel='stylesheet'><link href='https://css.gg/home.css' rel='stylesheet'>
+<link href='https://css.gg/file-document.css' rel='stylesheet'>
+<link href='https://css.gg/home.css' rel='stylesheet'>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -35,7 +36,6 @@ $(document).ready(function() {
     });
 });
 </script>
-
 
 
 <style>
@@ -102,7 +102,7 @@ h5 {
         title="close side menu" id="myOverlay"></div>
 
     <!-- !PAGE CONTENT! -->
-    <div class="w3-main w3-white" style="margin-left:300px;margin-top:43px;">
+    <div class="w3-main w3-white" style="margin-left:300px;margin-top:4px;">
 
         <!-- @yield('content') -->
 
@@ -111,6 +111,7 @@ h5 {
     <form class="w3-container w3-row-padding w3-white" style="margin-left:14%;" id="form" method="POST"
         action="./documento.php">
         <header class="w3-container" style="padding-top:22px">
+            <br>
             <h3><b><i class="w3-blue"></i> PROCESSOS</b></h3>
         </header>
         <header class="w3-container" style="padding-top:22px">
@@ -122,13 +123,15 @@ h5 {
                 <div class="w3-container w3-padding-16" style="background-color: #76C893;">
                     <div class="w3-left"><i class="fa fa-bars w3-xxxlarge"></i></div>
                     <div class="w3-right">
-                        <?php $query = "select count(*) as total from processo";
+                        <?php
+                        $query = 'select count(*) as total from processo';
 
                         $result = mysqli_query($conexao, $query);
-
                         ?>
-                        <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
-                        <h3><?php echo $row_usuario['total'] ?></h3>
+                        <?php while (
+                            $row_usuario = mysqli_fetch_assoc($result)
+                        ) { ?>
+                        <h3><?php echo $row_usuario['total']; ?></h3>
                         <?php } ?>
                     </div>
                     <div class="w3-clear"></div>
@@ -141,13 +144,18 @@ h5 {
                 <div class="w3-container w3-text-white w3-padding-16" style="background-color: #52B69A;">
                     <div class="w3-left"><i class="fa fa-bars w3-xxxlarge"></i></div>
                     <div class="w3-right">
-                        <?php $query = "select count(*) as total_arquitetura from processo where destino = 'arquitetura'";
+                        <?php
+                        $query =
+                            "select count(*) as total_arquitetura from processo where destino = 'arquitetura'";
 
                         $result = mysqli_query($conexao, $query);
-
                         ?>
-                        <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
-                        <h3><?php echo $row_usuario['total_arquitetura'] ?></h3>
+                        <?php while (
+                            $row_usuario = mysqli_fetch_assoc($result)
+                        ) { ?>
+                        <h3><?php echo $row_usuario[
+                            'total_arquitetura'
+                        ]; ?></h3>
                         <?php } ?>
                     </div>
                     <div class="w3-clear"></div>
@@ -157,16 +165,21 @@ h5 {
                 </div>
             </div>
             <div class="w3-quarter">
-                <div class="w3-container w3-text-white w3-padding-16 "style="background-color: #34A0A4;">
+                <div class="w3-container w3-text-white w3-padding-16 " style="background-color: #34A0A4;">
                     <div class="w3-left"><i class="fa fa-bars w3-xxxlarge"></i></div>
                     <div class="w3-right">
-                        <?php $query = "select count(*) as total_complementares from processo where destino = 'complementares'";
+                        <?php
+                        $query =
+                            "select count(*) as total_complementares from processo where destino = 'complementares'";
 
                         $result = mysqli_query($conexao, $query);
-
                         ?>
-                        <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
-                        <h3><?php echo $row_usuario['total_complementares'] ?></h3>
+                        <?php while (
+                            $row_usuario = mysqli_fetch_assoc($result)
+                        ) { ?>
+                        <h3><?php echo $row_usuario[
+                            'total_complementares'
+                        ]; ?></h3>
                         <?php } ?>
                     </div>
                     <div class="w3-clear"></div>
@@ -179,13 +192,16 @@ h5 {
                 <div class="w3-container w3-text-white w3-padding-16" style="background-color:#168AAD">
                     <div class="w3-left"><i class="fa fa-bars w3-xxxlarge" aria-hidden="true"></i></div>
                     <div class="w3-right">
-                        <?php $query = "select count(*) as total_orcamento from processo where destino = 'orcamento'";
+                        <?php
+                        $query =
+                            "select count(*) as total_orcamento from processo where destino = 'orcamento'";
 
                         $result = mysqli_query($conexao, $query);
-
                         ?>
-                        <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
-                        <h3><?php echo $row_usuario['total_orcamento'] ?></h3>
+                        <?php while (
+                            $row_usuario = mysqli_fetch_assoc($result)
+                        ) { ?>
+                        <h3><?php echo $row_usuario['total_orcamento']; ?></h3>
                         <?php } ?>
                     </div>
                     <div class="w3-clear"></div>
@@ -204,7 +220,7 @@ h5 {
             <table id="myTable">
                 <br>
                 <thead>
-                    <tr>
+                    <tr class="w3-highway-blue">
                         <th>Número do Processo</th>
                         <th>Status</th>
                         <th>Local</th>
@@ -214,28 +230,32 @@ h5 {
                 </thead>
                 <tbody>
                     <?php
-                     //seleciona todos os itens da tabela    
-                     $query = "select * from processo";
-                     $result = mysqli_query($conexao, $query);
- 
-                     //conta o total de itens 
-                     $total = mysqli_num_rows($result);
- 
+                    //seleciona todos os itens da tabela
+                    $query = 'select * from processo';
+                    $result = mysqli_query($conexao, $query);
+
+                    //conta o total de itens
+                    $total = mysqli_num_rows($result);
+
                     //exibe os produtos selecionados
                     while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
                     <tr>
-                        <td><?php echo $row_usuario['num'] ?></td>
-                        <td><?php echo $row_usuario['status_processo'] ?></td>
-                        <td><?php echo $row_usuario['destino'] ?></td>
-                        <td><?php echo $row_usuario['origem'] ?></td>
+                        <td><?php echo $row_usuario['num']; ?></td>
+                        <td><?php echo $row_usuario['status_processo']; ?></td>
+                        <td><?php echo $row_usuario['destino']; ?></td>
+                        <td><?php echo $row_usuario['origem']; ?></td>
                         <td>
                             <form action="documento.php" method="POST">
-                                <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>" name="id">
-                                <button class="w3-button" type="submit" style="width:40%;"><i class="gg-file-document"></i></button>
+                                <input hidden type="number" value="<?php echo $row_usuario[
+                                    'id_processo'
+                                ]; ?>" name="id">
+                                <button class="w3-button" type="submit" style="width:40%;"><i
+                                        class="gg-file-document"></i></button>
                             </form>
                         </td>
                     </tr>
-                    <?php } ?>
+                    <?php }
+                    ?>
                 <tbody>
             </table>
 
@@ -257,7 +277,7 @@ h5 {
                 line-height: 40px;
                 border-collapse: separate;
                 border-spacing: 0;
-                border: 2px solid #00477e;
+                border: 2px solid #07487C;
                 width: 1550px;
                 margin: 50px auto;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .16);
@@ -265,7 +285,7 @@ h5 {
             }
 
             th {
-                background: #00477e;
+
                 color: #fff;
                 border: none;
             }

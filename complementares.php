@@ -1,6 +1,5 @@
 <?php
-include 'database/conexaobd.php';
-?>
+include 'database/conexaobd.php'; ?>
 <!DOCTYPE html>
 <html>
 <title>DEPAT</title>
@@ -136,13 +135,14 @@ include 'database/conexaobd.php';
                     </thead>
                     <tbody>
                     <?php
-                     //seleciona todos os itens da tabela    
-                     $query = "select * from processo where destino = 'complementares'";
-                     $result = mysqli_query($conexao, $query);
- 
-                     //conta o total de itens 
-                     $total = mysqli_num_rows($result);
- 
+                    //seleciona todos os itens da tabela
+                    $query =
+                        "select * from processo where destino = 'complementares'";
+                    $result = mysqli_query($conexao, $query);
+
+                    //conta o total de itens
+                    $total = mysqli_num_rows($result);
+
                     //exibe os produtos selecionados
                     while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
                     <tr>
@@ -178,7 +178,8 @@ include 'database/conexaobd.php';
                             </form>
                         </td>
                     </tr>
-                    <?php } ?>
+                    <?php }
+                    ?>
                     <tbody>
                     </table>
                

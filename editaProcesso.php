@@ -24,9 +24,7 @@ h5 {
 }
 </style>
 
-<?php 
-    session_start();
-?>
+<?php session_start(); ?>
 
 <!-- CABEÇALHO -->
 
@@ -71,19 +69,22 @@ h5 {
     <!-- FORMULÁRIO -->
 <?php
 include 'database/conexaobd.php';
- 
+
 $id = mysqli_real_escape_string($conexao, $_POST['id']);
 
-$select = "select * from processo p where p.id_processo = " . $id . " LIMIT 1;";
+$select = 'select * from processo p where p.id_processo = ' . $id . ' LIMIT 1;';
 $res = mysqli_query($conexao, $select);
 $obj = $res->fetch_object();
-
 ?>
 
 <form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST" action="./editar.php">
 <header class="w3-container" style="padding-top:22px">
     <h3><b><i class="w3-blue"></i> EDIÇÃO DE PROCESSOS </b></h3>
-    <p> <?= isset($_SESSION['message']) ? $_SESSION['message'] : "" ; ?> </p> <?php if(isset($_SESSION['message'])) unset($_SESSION['message']); ?> 
+    <p> <?= isset($_SESSION['message'])
+        ? $_SESSION['message']
+        : '' ?> </p> <?php if (isset($_SESSION['message'])) {
+     unset($_SESSION['message']);
+ } ?> 
 </header>
         <div class="w3-col s12">
             <input class="w3-input" type="text" name="nome" id="nome" value="<?= $obj->num ?>" placeholder="Número do Processo" required>

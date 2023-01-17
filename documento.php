@@ -76,17 +76,19 @@ h5 {
   <form>
     <div class="w3-responsive w3-center"  id="printableArea">
 
-                <?php 
-                        $id = mysqli_real_escape_string($conexao, $_POST['id']);
-                        
-                        $select = "select * from processo p where p.id_processo = " . $id . " LIMIT 1;";
+                <?php
+                $id = mysqli_real_escape_string($conexao, $_POST['id']);
 
-                        $result = mysqli_query($conexao, $select); 
-                        
+                $select =
+                    'select * from processo p where p.id_processo = ' .
+                    $id .
+                    ' LIMIT 1;';
+
+                $result = mysqli_query($conexao, $select);
                 ?> 
             <div class="w3-container w3-border w3-large w3-white" >
                 
-                <?php while($row_usuario = mysqli_fetch_assoc($result)){ ?> 
+                <?php while ($row_usuario = mysqli_fetch_assoc($result)) { ?> 
                     <br><p>
                     <img src="public/img/brasao-do-acre.png" style="width:5%">
                     <br><p>
@@ -96,47 +98,57 @@ h5 {
                     <table class="w3-table-all">
                         <tr>
                             <th>Número do processo:</th>
-                            <td><?php echo $row_usuario['num'] ?></td>
+                            <td><?php echo $row_usuario['num']; ?></td>
                         </tr>
                         <tr>
                             <th>Número do Documento:</th>
-                            <td></b><?php echo $row_usuario['documento'] ?></td>
+                            <td></b><?php echo $row_usuario[
+                                'documento'
+                            ]; ?></td>
                         </tr>
                         <tr>
                             <th>Objeto:</th>
-                            <td><?php echo $row_usuario['objeto'] ?></td>
+                            <td><?php echo $row_usuario['objeto']; ?></td>
                         </tr>    
                         <tr>
                             <th>Projetista:</th>
-                            <td><?php echo $row_usuario['projetista'] ?></td>
+                            <td><?php echo $row_usuario['projetista']; ?></td>
                         </tr>
                         <tr>
                             <th>Data de Recebimento:</th>
-                            <td><?php echo $row_usuario['data_recebimento'] ?></td>
+                            <td><?php echo $row_usuario[
+                                'data_recebimento'
+                            ]; ?></td>
                         </tr>    
                         <tr>
                             <th>Data de Inclusão:</th>
-                            <td><?php echo $row_usuario['data_inclusao'] ?></td>
+                            <td><?php echo $row_usuario[
+                                'data_inclusao'
+                            ]; ?></td>
                         </tr>
                         <tr>
                             <th>Data de Conclusão:</th>
-                            <td><?php echo $row_usuario['data_conclusao'] ?></td>
+                            <td><?php echo $row_usuario[
+                                'data_conclusao'
+                            ]; ?></td>
                         </tr>
                         <tr>
                             <th>Status do Processo:</th>
-                            <td><?php echo $row_usuario['status_processo'] ?></td>
+                            <td><?php echo $row_usuario[
+                                'status_processo'
+                            ]; ?></td>
                         </tr>
                         <tr>
                             <th>Origem:</th>
-                            <td><?php echo $row_usuario['origem'] ?></td>
+                            <td><?php echo $row_usuario['origem']; ?></td>
                         </tr>
                         <tr>
                             <th>Destino:</th>
-                            <td><?php echo $row_usuario['destino'] ?></td>
+                            <td><?php echo $row_usuario['destino']; ?></td>
                         </tr>
                         <tr>
                             <th>Disciplinas:</th>
-                            <td><?php echo $row_usuario['disciplinas'] ?></td>
+                            <td><?php echo $row_usuario['disciplinas']; ?></td>
                         </tr>   
                     </table>
                     <br>                                  

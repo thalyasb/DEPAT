@@ -25,9 +25,7 @@ h5 {
 
 </style>
 
-<?php 
-    session_start();
-?>
+<?php session_start(); ?>
 
 <!-- CABEÇALHO -->
 
@@ -76,7 +74,11 @@ h5 {
             <h3><b><i class="w3-blue"></i> CADASTRO DE PROCESSOS</b></h3>
             <p></p>
             <hr>
-            <p> <?= isset($_SESSION['message']) ? $_SESSION['message'] : "" ; ?> </p> <?php if(isset($_SESSION['message'])) unset($_SESSION['message']); ?>
+            <p> <?= isset($_SESSION['message'])
+                ? $_SESSION['message']
+                : '' ?> </p> <?php if (isset($_SESSION['message'])) {
+     unset($_SESSION['message']);
+ } ?>
         </header>
         <div class="w3-col s12">
             <input class="w3-input" type="text" name="nome" id="nome" placeholder="Número do Processo" required>
