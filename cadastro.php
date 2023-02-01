@@ -138,18 +138,18 @@ h5 {
         </div>
 
         <div class="w3-col s4" id="check" multiple name="disciplinas" required>
-                <p value="">Disciplinas:</p>
-                <input class="w3-check" type="checkbox" name="disciplinas[]" value="Estrutural">
+                <p value="disciplinas">Disciplinas:</p>
+                <input class="w3-check" type="checkbox" name="disciplina1" value="Estrutural,">
                     <label>Estrutural</label><br>
-                <input class="w3-check" type="checkbox" name="disciplinas[]" value="Instalações Hidrossanitárias">
+                <input class="w3-check" type="checkbox" name="disciplina2" value="Instalações Hidrossanitárias,">
                     <label>Instalações Hidrossanitárias</label><br>
-                <input class="w3-check" type="checkbox" name="disciplinas[]" value="Instalações Elétricas">
+                <input class="w3-check" type="checkbox" name="disciplina3" value="Instalações Elétricas,">
                     <label>Instalações Elétricas</label><br>
-                <input class="w3-check" type="checkbox" name="disciplinas[]" value="Climatização">
+                <input class="w3-check" type="checkbox" name="disciplina4" value="Climatização,">
                     <label>Climatização</label><br>
-                <input class="w3-check" type="checkbox" name="disciplinas[]" value="Combate Incêndio e Pânico">
+                <input class="w3-check" type="checkbox" name="disciplina5" value="Combate Incêndio e Pânico,">
                     <label>Combate Incêndio e Pânico</label><br>
-                <input class="w3-check" type="checkbox" name="disciplinas[]" value="Drenagem Pluvial">
+                <input class="w3-check" type="checkbox" name="disciplina6" value="Drenagem Pluvial">
                     <label>Drenagem Pluvial</label><br>
                 <br>
                 <br>

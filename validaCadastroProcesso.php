@@ -14,7 +14,21 @@ $status_processo = mysqli_real_escape_string($conexao, $_POST['status_processo']
 $origem = mysqli_real_escape_string($conexao, $_POST['origem']);
 $destino = mysqli_real_escape_string($conexao, $_POST['destino']);
 $detalhes = mysqli_real_escape_string($conexao, $_POST['detalhes']);
-$disciplinas = mysqli_real_escape_string($conexao, $_POST['disciplinas']);
+$disciplina1 = mysqli_real_escape_string($conexao, $_POST['disciplina1']);
+$disciplina2 = mysqli_real_escape_string($conexao, $_POST['disciplina2']);
+$disciplina3 = mysqli_real_escape_string($conexao, $_POST['disciplina3']);
+$disciplina4 = mysqli_real_escape_string($conexao, $_POST['disciplina4']);
+$disciplina5 = mysqli_real_escape_string($conexao, $_POST['disciplina5']);
+$disciplina6 = mysqli_real_escape_string($conexao, $_POST['disciplina6']);
+$disciplinas = '
+    ' . $disciplina1 . '
+    ' . $disciplina2 . '
+    ' . $disciplina3 . '
+    ' . $disciplina4 . '
+    ' . $disciplina5 . '
+    ' . $disciplina6 . '
+';
+
 
 $_SESSION['message'] = "Cadastro Efetuado!";
 if(isset($_SESSION['message'])){
