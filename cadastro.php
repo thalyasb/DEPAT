@@ -20,7 +20,7 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: "Raleway", sans-serif
+    font-family: "Noto Sans", sans-serif
 }
 
 </style>
@@ -71,7 +71,7 @@ h5 {
     
     <form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST" action="./validaCadastroProcesso.php">
         <header class="w3-container" style="padding-top:22px">
-            <h3><b><i class="w3-blue"></i> CADASTRO DE PROCESSOS</b></h3>
+            <h2><i class="w3-blue"></i> CADASTRO DE PROCESSOS</h2>
             <p></p>
             <hr>
             <p> <?= isset($_SESSION['message'])
@@ -139,26 +139,26 @@ h5 {
 
         <div class="w3-col s4" id="check" multiple name="disciplinas" required>
                 <p value="">Disciplinas:</p>
-                <input class="w3-check" type="checkbox" name="disciplinas" value="Estrutural">
+                <input class="w3-check" type="checkbox" name="disciplinas[]" value="Estrutural">
                     <label>Estrutural</label><br>
-                <input class="w3-check" type="checkbox" name="disciplinas" value="Instalações Hidrossanitárias">
+                <input class="w3-check" type="checkbox" name="disciplinas[]" value="Instalações Hidrossanitárias">
                     <label>Instalações Hidrossanitárias</label><br>
-                <input class="w3-check" type="checkbox" name="disciplinas" value="Instalações Elétricas">
+                <input class="w3-check" type="checkbox" name="disciplinas[]" value="Instalações Elétricas">
                     <label>Instalações Elétricas</label><br>
-                <input class="w3-check" type="checkbox" name="disciplinas" value="Climatização">
+                <input class="w3-check" type="checkbox" name="disciplinas[]" value="Climatização">
                     <label>Climatização</label><br>
-                <input class="w3-check" type="checkbox" name="disciplinas" value="Combate Incêndio e Pânico">
+                <input class="w3-check" type="checkbox" name="disciplinas[]" value="Combate Incêndio e Pânico">
                     <label>Combate Incêndio e Pânico</label><br>
-                <input class="w3-check" type="checkbox" name="disciplinas" value="Drenagem Pluvial">
+                <input class="w3-check" type="checkbox" name="disciplinas[]" value="Drenagem Pluvial">
                     <label>Drenagem Pluvial</label><br>
                 <br>
                 <br>
                 <br>
                 <label>Outras Disciplinas:</label>
-                <input class="w3-input w3-border" name="detalhes" type="text">
-           
+                <input class="w3-input w3-border" name="detalhes" type="text">       
         </div>
     </form>
+
     <div class="w3-container w3-row-padding w3-white" style="margin-left:14%">
         <p>
             <input class="w3-button w3-blue w3-start w3-round" type="submit"

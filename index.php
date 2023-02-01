@@ -8,6 +8,8 @@
 <link href='https://css.gg/home.css' rel='stylesheet'>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
     integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <link rel="shortcut icon" type="imagem/png" href="./public/img/depat-sem-fundo.png" />
@@ -50,7 +52,7 @@ b,
 td,
 th,
 h5 {
-    font-family: "Raleway", sans-serif;
+    font-family: "Noto Sans", sans-serif;
 }
 </style>
 
@@ -112,10 +114,10 @@ h5 {
         action="./documento.php">
         <header class="w3-container" style="padding-top:22px">
             <br>
-            <h3><b><i class="w3-blue"></i> PROCESSOS</b></h3>
+            <h3><i class="w3-blue"></i> PROCESSOS</h3>
         </header>
         <header class="w3-container" style="padding-top:22px">
-            <h5><b><i class="fa fa-clipboard-list"></i> Estatísticas</b></h5>
+            <h5><i class="fa fa-clipboard-list"></i> Estatísticas</h5>
         </header>
 
         <div class="w3-row-padding w3-text-white w3-margin-bottom w3-animate-left">
@@ -193,8 +195,7 @@ h5 {
                     <div class="w3-left"><i class="fa fa-bars w3-xxxlarge" aria-hidden="true"></i></div>
                     <div class="w3-right">
                         <?php
-                        $query =
-                            "select count(*) as total_orcamento from processo where destino = 'orcamento'";
+                        $query = "select count(*) as total_orcamento from processo where destino = 'orcamento'";
 
                         $result = mysqli_query($conexao, $query);
                         ?>
@@ -237,7 +238,7 @@ h5 {
                     //conta o total de itens
                     $total = mysqli_num_rows($result);
 
-                    //exibe os produtos selecionados
+                    //exibe os processos selecionados
                     while ($row_usuario = mysqli_fetch_assoc($result)) { ?>
                     <tr>
                         <td><?php echo $row_usuario['num']; ?></td>
@@ -249,8 +250,7 @@ h5 {
                                 <input hidden type="number" value="<?php echo $row_usuario[
                                     'id_processo'
                                 ]; ?>" name="id">
-                                <button class="w3-button" type="submit" style="width:40%;"><i
-                                        class="gg-file-document"></i></button>
+                                <button class="w3-button" type="submit" style="width:40%;"><span class="material-icons">visibility</span></i></button>
                             </form>
                         </td>
                     </tr>

@@ -8,6 +8,8 @@ include 'database/conexaobd.php'; ?>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link href='https://css.gg/pen.css' rel='stylesheet'>
 <link href='https://css.gg/trash.css' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 <link href='https://css.gg/file-document.css' rel='stylesheet'>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -49,7 +51,7 @@ include 'database/conexaobd.php'; ?>
     h3,
     h4,
     h5 {
-        font-family: "Raleway", sans-serif
+        font-family: "Noto Sans", sans-serif
     }
 
     ;
@@ -112,7 +114,7 @@ include 'database/conexaobd.php'; ?>
 
     <form class="w3-container w3-row-padding w3-white" style="margin-left:14%" id="form" method="POST" action="./editaProcesso.php">
         <header class="w3-container" style="padding-top:22px">
-            <h3><b><i class="w3-blue"></i> PROCESSOS COMPLEMENTARES</b></h3>
+            <h2><i class="w3-blue"></i> PROCESSOS COMPLEMENTARES</h2>
             <p></p>
             <hr>
         </header>
@@ -158,7 +160,7 @@ include 'database/conexaobd.php'; ?>
                                 <input hidden type="number" value="<?php echo $row_usuario[
                                     'id_processo'
                                 ]; ?>" name="id">
-                                <button class="w3-button" type="submit"><i class="gg-pen"></i></button>
+                                <button class="w3-button" type="submit"><span class="material-icons">edit</span></button>
                             </form>
                         </td>
                         <td>
@@ -166,7 +168,7 @@ include 'database/conexaobd.php'; ?>
                                 <input hidden type="number" value="<?php echo $row_usuario[
                                     'id_processo'
                                 ]; ?>" name="id">
-                                <button class="w3-button" type="submit"><i class="gg-trash"></i></button>
+                                <button class="w3-button" type="submit"><span class="material-icons">delete</span></button>
                             </form>
                         </td>
                         <td>
@@ -174,7 +176,7 @@ include 'database/conexaobd.php'; ?>
                                 <input hidden type="number" value="<?php echo $row_usuario[
                                     'id_processo'
                                 ]; ?>" name="id">
-                                <button class="w3-button" type="submit"><i class="gg-file-document"></i></button>
+                                <button class="w3-button" type="submit"><span class="material-icons">visibility</span></button>
                             </form>
                         </td>
                     </tr>

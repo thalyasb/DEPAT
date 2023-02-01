@@ -8,6 +8,8 @@
 <link href='https://css.gg/home.css' rel='stylesheet'>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
     integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <link rel="shortcut icon" type="imagem/png" href="./public/img/depat-sem-fundo.png" />
@@ -43,7 +45,7 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: "Raleway", sans-serif
+    font-family: "Noto Sans", sans-serif
 }
 </style>
 
@@ -142,8 +144,7 @@ h5 {
                                 <form action="documento.php" method="POST">
                                     <input hidden type="number" value="<?php echo $row_usuario['id_processo'] ?>"
                                         name="id">
-                                    <button class="w3-button" type="submit" style="width:40%;"><i
-                                            class="gg-file-document"></i></button>
+                                    <button class="w3-button" type="submit" style="width:40%;"><span class="material-icons">visibility</span></button>
                                 </form>
                             </td>
                         </tr>

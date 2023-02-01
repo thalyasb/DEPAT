@@ -26,7 +26,7 @@ b,
 td,
 th,
 h5 {
-    font-family: "Raleway", sans-serif;
+    font-family: "Noto Sans", sans-serif;
 }
 </style>
 
