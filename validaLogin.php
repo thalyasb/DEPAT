@@ -2,7 +2,7 @@
 include 'database/conexaobd.php';
 
 if (empty($_POST['usuario']) || empty($_POST['senha'])) {
-    header('Location: login.php');
+    header('Location: index.php');
     echo 'vazio';
 }
 
@@ -22,10 +22,10 @@ $row = mysqli_num_rows($result);
 
 if ($row == 1) {
     $_SESSION['usuario'] = $usuario;
-    header('Location: index.php');
+    header('Location: home.php');
     exit();
 } else {
-    header('Location: login.php');
+    header('Location: index.php');
     exit();
 }
 ?>

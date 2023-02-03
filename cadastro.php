@@ -53,7 +53,7 @@ h5 {
             <h5>Menu</h5>
         </div>
         <div class="w3-bar-block">
-            <a href="index.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home"></i>&nbsp; Página Inicial</a>
+            <a href="home.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home"></i>&nbsp; Página Inicial</a>
             <a href="cadastro.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-address-card fa-fw"></i>&nbsp;
                 Cadastro</a>
             <a href="arquitetura.php" class="w3-bar-item w3-button w3-padding"><i
