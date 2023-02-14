@@ -143,25 +143,25 @@ $obj = $res->fetch_object();
             </select></p></br>
         </div>
 
-        <div class="w3-col s4">
-                <p>Disciplinas:</p>
-                <input class="w3-check" type="checkbox" checked="checked" >
-                <label>Estrutural</label>
-                <input class="w3-check" type="checkbox">
-                <label>Instalações Hidrossanitárias</label>
-                <input class="w3-check" type="checkbox" checked="checked" >
-                <label>Intalações Elétricas</label>
-                <input class="w3-check" type="checkbox">
-                <label>Climatização</label>
-                <input class="w3-check" type="checkbox" checked="checked" >
-                <label>Combate Incêndio e Pânico</label>
-                <input class="w3-check" type="checkbox">
-                <label>Drenagem Pluvial</label>
+        <div class="w3-col s4" id="check" multiple name="disciplinas" required>
+                <p value="disciplinas">Disciplinas:</p>
+                <input class="w3-check" type="checkbox" name="disciplina1" value="Estrutural,">
+                    <label>Estrutural</label><br>
+                <input class="w3-check" type="checkbox" name="disciplina2" value="Instalações Hidrossanitárias,">
+                    <label>Instalações Hidrossanitárias</label><br>
+                <input class="w3-check" type="checkbox" name="disciplina3" value="Instalações Elétricas,">
+                    <label>Instalações Elétricas</label><br>
+                <input class="w3-check" type="checkbox" name="disciplina4" value="Climatização,">
+                    <label>Climatização</label><br>
+                <input class="w3-check" type="checkbox" name="disciplina5" value="Combate Incêndio e Pânico,">
+                    <label>Combate Incêndio e Pânico</label><br>
+                <input class="w3-check" type="checkbox" name="disciplina6" value="Drenagem Pluvial">
+                    <label>Drenagem Pluvial</label><br>
                 <br>
                 <br>
                 <br>
-                <label>Detalhes da Disciplina:</label>
-                <input class="w3-input w3-border" name="detalhes" type="text">
+                <label>Outras Disciplinas:</label>
+                <input class="w3-input w3-border" name="detalhes" type="text">       
         </div>
 
     <div class="w3-container w3-row-padding w3-white" style="margin-left:14%">

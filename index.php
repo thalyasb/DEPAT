@@ -26,19 +26,18 @@ footer {
 </style>
 <?php
 
-    include("database/conexaobd.php");
-
 ?>
 <div class="container">
     <div class="w3-padding w3-display-topmiddle" style="width:50%;height:50%">
         <div class="w3-center"><br>
             <img src="public/img/depat (6).png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
         </div>
-        <form class="w3-container" style="margin-left:32%" method="POST" action="./validaLogin.php">
+        <form class="w3-container" style="margin-left:32%" method="POST" action="conexaoLDAP.php">
 
             <div class="w3-section w3-half">
                 <label for="usuario"><b>Usuário: </b></label>
-                <input required id="usuario" type="text" class="w3-input w3-border w3-margin-bottom " name="usuario" value="" required oninvalid="this.setCustomValidity('Insira o Usuário')" oninput="this.setCustomValidity('')">
+                <input required id="usuario" type="text" class="w3-input w3-border w3-margin-bottom " 
+                name="usuario" value="" required oninvalid="this.setCustomValidity('Insira o Usuário')" oninput="this.setCustomValidity('')">
 
                 <label for="senha"><b>Senha: </b></label>
                 <input required id="senha" type="password" class="w3-input w3-border" name="senha" required
