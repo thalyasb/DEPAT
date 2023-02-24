@@ -25,7 +25,8 @@ footer {
 }
 </style>
 <?php
-
+include 'conexaoLDAP.php';
+session_start(); 
 ?>
 <div class="container">
     <div class="w3-padding w3-display-topmiddle" style="width:50%;height:50%">
