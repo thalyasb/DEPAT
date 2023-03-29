@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>DEPAT</title>
+<title>DEPRO</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -33,7 +33,7 @@ h5 {
     <div class="w3-bar w3-top w3-highway-blue w3-large color" style="z-index:4">
         <a class="w3-bar-item w3-button w3-right w3-hover-none w3-hover-text-light-grey" href="logout"><i
                 class="fa fa-times"></i>&nbsp; Sair</a>
-        <span class="w3-bar-item w3-left">DEPAT</span>
+        <span class="w3-bar-item w3-left">DEPRO</span>
     </div>
     <br>
     <br>
@@ -42,7 +42,7 @@ h5 {
     <nav class="w3-sidebar w3-collapse w3-white " style="z-index:3;width:250px;" id="mySidebar"><br>
         <div class="w3-container w3-row w3-cell">
             <div class="w3-col s4">
-                <img src="public/img/depat (6).png" class="w3-circle" style="width:230px">
+                <img src="public/img/depro.png" class="w3-circle" style="width:230px">
             </div>
             <div class="w3-col s8 w3-bar w3-cell-middle">
                 <span> <strong></strong></span><br>
@@ -110,7 +110,7 @@ h5 {
         <div class="w3-col s4">
             <select class="w3-select" name="origem" required>
                 <option value="" disabled selected> Origem:</option>
-                <option value="DEPAT"> DEPAT</option>
+                <option value="DEPRO"> DEPRO</option>
                 <option value="DEPCO"> DEPCO</option>
                 <option value="DITEC"> DITEC</option>
                 <option value="SEINFRA"> SEINFRA</option>

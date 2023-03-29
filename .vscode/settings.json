@@ -1,0 +1,10 @@
+{
+    "php.validate.executablePath": "",
+    "phpformatter.arguments": [
+
+        "--level=psr2"
+    ],
+    "php.files.exclude": [
+        
+    ]
+}

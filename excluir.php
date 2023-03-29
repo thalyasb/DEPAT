@@ -9,7 +9,7 @@ $id = mysqli_real_escape_string($conexao, $_POST['id']);
 try{
     $delete = "delete processo from processo where id_processo = '" . $id . "';";
     mysqli_query($conexao, $delete);
-        header('Location: arquitetura.php');
+        header('Location: home.php');
             exit();
 }catch(Exception $err){
     echo $err;
