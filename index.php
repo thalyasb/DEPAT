@@ -33,7 +33,7 @@ session_start();
         <div class="w3-center"><br>
             <img src="public/img/depro.png" alt="Avatar" style="width:40%" class="w3-circle w3-margin-top">
         </div>
-        <form class="w3-container" style="margin-left:32%" method="POST" action="validaLogin.php">
+        <form class="w3-container" style="margin-left:32%" method="POST" action="./validaLogin.php">
 
             <div class="w3-section w3-half">
                 <label for="usuario"><b>Usuário: </b></label>
