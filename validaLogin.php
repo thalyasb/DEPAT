@@ -1,6 +1,5 @@
 <?php
 include 'database/conexaobd.php';
-include 'conexaoLDAP.php';
 
 if (empty($_POST['usuario']) || empty($_POST['senha'])) {
     header('Location: index.php');

@@ -25,7 +25,7 @@ footer {
 }
 </style>
 <?php
-include 'conexaoLDAP.php';
+    include("database/conexaobd.php");
 session_start(); 
 ?>
 <div class="container">
