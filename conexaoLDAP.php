@@ -3,7 +3,7 @@
 $ldap_server = "10.16.17.228";
 $dominio = "infraestrutura\\";
 $ldap_porta = "389";
-$ldapcon = ldap_connect($ldap_server, $ldap_porta) or die ("Não conectou ao servidor LDAP.");
+$ldapcon = ldap_connect($ldap_server, $ldap_porta) or die ("Não conectou ao servidor.");
 
 
 if ($ldapcon){

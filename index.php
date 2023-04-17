@@ -49,7 +49,9 @@ session_start();
                 <span class="invalid-feedback">
                     <strong style="color: red"></strong></br>
                 </span>
-
+                <span class="invalid-feedback">
+                    <strong style="color: red"></strong></br>
+                </span>
 
 
                 <button type="submit" class="w3-button w3-block w3-highway-blue w3-section w3-padding">
