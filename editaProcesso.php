@@ -108,6 +108,7 @@ $obj = $res->fetch_object();
         <div class="w3-col s4">
             <select class="w3-select" name="status_processo" required>
                 <option value="<?= $obj->status_processo ?>"  selected> <?= $obj->status_processo ?> - Padrao</option>
+                <option value="Não Iniciado">Não Iniciado</option>
                 <option value="Iniciado"> Iniciado</option>
                 <option value="Execução"> Em Execução</option>
                 <option value="Finalizado"> Finalizado </option>

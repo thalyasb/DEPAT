@@ -17,6 +17,8 @@ h5 {
 
 footer {
     position: absolute;
+    color: aliceblue;
+    background-color: #00477e;
     bottom: 0;
     width: 100%;
     height: 100px;
@@ -33,7 +35,7 @@ session_start();
         <div class="w3-center"><br>
             <img src="public/img/depro.png" alt="Avatar" style="width:40%" class="w3-circle w3-margin-top">
         </div>
-        <form class="w3-container" style="margin-left:32%" method="POST" action="./validaLogin.php">
+        <form class="w3-container" style="margin-left:32%" method="POST" action="conexaoLDAP.php">
 
             <div class="w3-section w3-half">
                 <label for="usuario"><b>Usuário: </b></label>
@@ -47,12 +49,10 @@ session_start();
                 <span class="invalid-feedback">
                     <strong style="color: red"></strong></br>
                 </span>
-                <span class="invalid-feedback">
-                    <strong style="color: red"></strong></br>
-                </span>
 
 
-                <button type="submit" class="w3-button w3-block w3-green w3-section w3-padding">
+
+                <button type="submit" class="w3-button w3-block w3-highway-blue w3-section w3-padding">
                     Entrar
                 </button>
                 <label>

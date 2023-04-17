@@ -102,6 +102,7 @@ h5 {
         <div class="w3-col s4">
             <select class="w3-select" name="status_processo" required>
                 <option value="" disabled selected> Status:</option>
+                <option value="Não Iniciado">Não Iniciado</option>
                 <option value="Iniciado"> Iniciado</option>
                 <option value="Em Execução"> Em Execução</option>
                 <option value="Finalizado"> Finalizado </option>

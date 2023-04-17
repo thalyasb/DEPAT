@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 include 'database/conexaobd.php';
 
 if (empty($_POST['usuario']) || empty($_POST['senha'])) {
@@ -28,4 +28,5 @@ if ($row == 1) {
     header('Location: index.php');
     exit();
 }
-?>
+?> 
+-->
